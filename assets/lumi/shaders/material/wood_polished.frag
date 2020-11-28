@@ -1,0 +1,16 @@
+#include frex:shaders/api/fragment.glsl
+
+/******************************************************
+  lumi:shaders/material/stone_bumpy_polished.frag
+******************************************************/
+
+void frx_startFragment(inout frx_FragmentData data) 
+{
+#ifdef LUMI_PBR
+  pbr_roughness = 0.5;
+#endif
+#ifdef LUMI_BUMP
+    __applyBump(data);
+    // data.spriteColor.rgb *= (data.vertexNormal + 1) * 0.5;
+#endif
+}
