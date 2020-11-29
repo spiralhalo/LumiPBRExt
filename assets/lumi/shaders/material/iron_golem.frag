@@ -1,5 +1,6 @@
 #include frex:shaders/api/fragment.glsl
 #include frex:shaders/api/world.glsl
+#include lumi:shaders/lib/bump.glsl
 #include lumi:shaders/lib/apply_bump.glsl
 
 /******************************************************

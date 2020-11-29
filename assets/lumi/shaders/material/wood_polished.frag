@@ -1,4 +1,6 @@
 #include frex:shaders/api/fragment.glsl
+#include lumi:shaders/lib/bump.glsl
+#include lumi:shaders/lib/apply_bump.glsl
 
 /******************************************************
   lumi:shaders/material/stone_bumpy_polished.frag

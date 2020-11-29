@@ -1,5 +1,6 @@
-#include lumi:shaders/lib/bump_coarse.glsl
 #include frex:shaders/api/fragment.glsl
+#include lumi:shaders/lib/bump.glsl
+#include lumi:shaders/lib/bump_coarse.glsl
 
 /******************************************************
   lumi:shaders/material/ice_coarse.frag

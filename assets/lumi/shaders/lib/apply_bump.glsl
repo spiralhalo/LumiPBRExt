@@ -1,6 +1,6 @@
-// #include lumi:shaders/api/bump.glsl
-// #include frex:shaders/api/sampler.glsl
-// #include frex:shaders/api/fragment.glsl
+#include frex:shaders/api/sampler.glsl
+#include frex:shaders/api/fragment.glsl
+#include lumi:shaders/lib/bump.glsl
 
 #ifdef LUMI_PBR
 void __applyBump(inout frx_FragmentData data) 
