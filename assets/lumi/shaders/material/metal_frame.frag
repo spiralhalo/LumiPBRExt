@@ -14,6 +14,7 @@ void frx_startFragment(inout frx_FragmentData data)
   pbr_roughness = 0.5;
 #endif
 #ifdef LUMI_BUMP
+#ifdef LUMI_BUMP_MINERALS
   vec2 spriteUV = frx_var1.zw;
   vec2 e1 = 1.0-step(0.0625, spriteUV);
   vec2 e2 = step(1.0-0.0625, spriteUV);
@@ -21,5 +22,6 @@ void frx_startFragment(inout frx_FragmentData data)
   float frameness = max(e.x, e.y);
   if (frameness > 0) {
     __applyBump(data);}
+#endif
 #endif
 }

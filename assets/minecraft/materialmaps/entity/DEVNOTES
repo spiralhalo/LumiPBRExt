@@ -1,0 +1,15 @@
+entities that wear armor:
+- armor_stand
+- husk
+- piglin_brute
+- piglin
+- player
+- skeleton
+- stray
+- wither_skeleton
+- zombie_villager
+- zombie
+- zombified_piglin
+
+entities that wear armor and has extra material gimmick:
+- drowned

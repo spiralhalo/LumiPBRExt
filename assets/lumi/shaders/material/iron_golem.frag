@@ -21,7 +21,9 @@ void frx_startFragment(inout frx_FragmentData data)
         pbr_roughness = 0.5 - s * 0.2;
     }
 #ifdef LUMI_BUMP
+#ifdef LUMI_BUMP_DEFAULT
     __applyBump(data);
+#endif
 #endif
 #endif
     if(c.r > c.g * 2) {

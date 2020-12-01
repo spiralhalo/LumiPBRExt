@@ -18,7 +18,11 @@ void frx_startFragment(inout frx_FragmentData data)
         data.spriteColor.rgb = min(vec3(1.0), c.rgb * 1.5);
         pbr_metallic = 1.0;
         pbr_roughness = 0.6 - s;
+#ifdef LUMI_BUMP
+#ifdef LUMI_BUMP_DEFAULT
         __applyBump(data);
+#endif
+#endif
     }
 #endif
 }

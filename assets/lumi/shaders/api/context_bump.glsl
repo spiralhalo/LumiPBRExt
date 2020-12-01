@@ -1,1 +1,3 @@
 #define LUMI_BUMP
+#define LUMI_BUMP_DEFAULT
+#define LUMI_BUMP_MINERALS

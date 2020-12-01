@@ -12,7 +12,9 @@ void frx_startFragment(inout frx_FragmentData data)
   pbr_roughness = 0.5;
 #endif
 #ifdef LUMI_BUMP
+#ifdef LUMI_BUMP_DEFAULT
     __applyBump(data);
     // data.spriteColor.rgb *= (data.vertexNormal + 1) * 0.5;
+#endif
 #endif
 }
