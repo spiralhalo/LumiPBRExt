@@ -10,8 +10,8 @@
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
-  if(!frx_isGui()){
 #ifdef LUMI_PBR
+  if(!frx_isGui()){
     vec4 c = data.spriteColor;
     float min_ = min( min(c.r, c.g), c.b );
     float max_ = max( max(c.r, c.g), c.b );
