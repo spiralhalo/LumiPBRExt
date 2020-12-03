@@ -2,12 +2,13 @@
  * lumi:shaders/lib/bump_alpha.glsl
  ********************************************************
  * An extension of Lumi Lights PBR bump map generation.
- * Licensed under LGPL-3.0 and provided without warranty.
+ * LICENSED under LGPL-3.0 and provided WITHOUT WARRANTY.
  ********************************************************/
 
 #include lumi:shaders/lib/bump_alpha.glsl
 
 #ifdef LUMI_BUMP
+/* Generate bumpy edge between solid and transparent texels. */
 vec3 bump_alpha_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb)
 {
     vec3 tangentMove = _bump_tangentMove(normal);

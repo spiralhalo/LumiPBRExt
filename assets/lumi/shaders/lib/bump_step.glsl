@@ -2,12 +2,13 @@
  * lumi:shaders/lib/bump_step.glsl
  ********************************************************
  * An extension of Lumi Lights PBR bump map generation.
- * Licensed under LGPL-3.0 and provided without warranty.
+ * LICENSED under LGPL-3.0 and provided WITHOUT WARRANTY.
  ********************************************************/
 
 #include lumi:shaders/lib/bump.glsl
 
 #ifdef LUMI_BUMP
+/* Generate binary bump map by checking texel luminance against a value defined by `step_`.*/
 vec3 bump_step_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, float step_, float strength)
 {
     vec3 tangentMove = _bump_tangentMove(normal);

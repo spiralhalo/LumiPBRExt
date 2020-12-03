@@ -2,7 +2,7 @@
  * lumi:shaders/lib/bump_coarse.glsl
  ********************************************************
  * An extension of Lumi Lights PBR bump map generation.
- * Licensed under LGPL-3.0 and provided without warranty.
+ * LICENSED under LGPL-3.0 and provided WITHOUT WARRANTY.
  ********************************************************/
 
 #include lumi:shaders/lib/bump.glsl
@@ -17,6 +17,7 @@ float __hash12(vec2 p)
 }
 
 #ifdef LUMI_BUMP
+/* Generate random bump map by using a noise function. */
 vec3 bump_coarse_normal(vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, float coarseness)
 {
     vec3 tangentMove = _bump_tangentMove(normal);

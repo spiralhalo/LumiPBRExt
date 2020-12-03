@@ -2,12 +2,13 @@
  * lumi:shaders/lib/bump_dark.glsl
  ********************************************************
  * An extension of Lumi Lights PBR bump map generation.
- * Licensed under LGPL-3.0 and provided without warranty.
+ * LICENSED under LGPL-3.0 and provided WITHOUT WARRANTY.
  ********************************************************/
 
 #include lumi:shaders/lib/bump.glsl
 
 #ifdef LUMI_BUMP
+/* Generate bump map by using texel luminance times a multiplier. */
 vec3 bump_dark_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, float colorMult)
 {
     vec3 tangentMove = _bump_tangentMove(normal);
