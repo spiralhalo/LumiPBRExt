@@ -16,7 +16,7 @@ float __hash12(vec2 p)
     return fract((p3.x + p3.y) * p3.z);
 }
 
-#ifdef LUMI_PBR
+#ifdef LUMI_BUMP
 vec3 bump_coarse_normal(vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, float coarseness)
 {
     vec3 tangentMove = _bump_tangentMove(normal);

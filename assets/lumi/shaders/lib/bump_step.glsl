@@ -7,6 +7,7 @@
 
 #include lumi:shaders/lib/bump.glsl
 
+#ifdef LUMI_BUMP
 vec3 bump_step_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, float step_, float strength)
 {
     vec3 tangentMove = _bump_tangentMove(normal);
@@ -18,3 +19,4 @@ vec3 bump_step_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, 
 
     return normalize(cross(tangent, bitangent));
 }
+#endif
