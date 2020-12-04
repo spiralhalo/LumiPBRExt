@@ -17,7 +17,7 @@ void frx_startFragment(inout frx_FragmentData data)
 #endif
 #ifdef LUMI_BUMP
 #ifdef LUMI_BUMP_MINERALS
-  __applyBump(data);
+  _applyBump(data);
   // data.spriteColor.rgb *= (data.vertexNormal + 1) * 0.5;
 #endif
 #endif

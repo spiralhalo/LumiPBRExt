@@ -21,7 +21,7 @@ void frx_startFragment(inout frx_FragmentData data)
   vec2 e = max(e1, e2);
   float frameness = max(e.x, e.y);
   if (frameness > 0) {
-    __applyBump(data);}
+    _applyBump(data);}
 #endif
 #endif
 }

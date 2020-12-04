@@ -12,7 +12,7 @@ void frx_startFragment(inout frx_FragmentData data)
 #ifdef LUMI_BUMP
 #ifdef LUMI_BUMP_DEFAULT
   if (abs(data.vertexNormal.y) < 0.02) {
-    __applyBump(data);
+    _applyBump(data);
     // data.spriteColor.rgb *= (data.vertexNormal + 1) * 0.5;
   }
 #endif

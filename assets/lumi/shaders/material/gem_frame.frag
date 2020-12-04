@@ -24,7 +24,7 @@ void frx_startFragment(inout frx_FragmentData data)
   vec2 e = max(e1, e2);
   float frameness = max(e.x, e.y);
   if (frameness > 0) {
-    __applyBump(data);
+    _applyBump(data);
   } else { 
     vec2 uvN = floor(frx_var1.zw * resolution)/resolution;
     vec2 uvT = uvN + vec2(0.5/resolution,0);

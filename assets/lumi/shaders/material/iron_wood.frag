@@ -21,7 +21,7 @@ void frx_startFragment(inout frx_FragmentData data)
 #ifdef LUMI_BUMP
 #ifdef LUMI_BUMP_MINERALS
         // if (frx_modelOriginType() == MODEL_ORIGIN_REGION) {
-        __applyBump(data);
+        _applyBump(data);
         // }
 #endif
 #endif

@@ -16,7 +16,7 @@ void frx_startFragment(inout frx_FragmentData data)
 #ifdef LUMI_BUMP
 #ifdef LUMI_BUMP_DEFAULT
     
-    __applyBump_step(data, 0.25, 0.8);
+    _applyBump_step(data, 0.25, 0.8);
 #endif
 #endif
   }
