@@ -1,3 +1,20 @@
 {
-    "defaultMaterial": "lumi:iron_wood_transform"
+    "map": [
+        {
+            "predicate": {
+                "materialPredicate": {
+                    "renderLayerName": "entity_cutout_no_cull"
+                }
+            },
+            "material": "lumi:metal_bumpy_transform"
+        },
+        {
+            "predicate": {
+                "materialPredicate": {
+                    "renderLayerName": "entity_cutout"
+                }
+            },
+            "material": "lumi:iron_wood_transform"
+        }
+    ]
 }
