@@ -13,6 +13,9 @@ void frx_startFragment(inout frx_FragmentData data)
   pbr_roughness = 0.7;
   if(data.spriteColor.b > data.spriteColor.r){
     pbr_roughness = 0.2;
+  #if LUMI_PBR_API >= 1
+    pbr_f0 = vec3(0.17);
+  #endif
   }
 #endif
 #ifdef LUMI_BUMP
