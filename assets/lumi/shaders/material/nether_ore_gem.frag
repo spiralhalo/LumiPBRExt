@@ -4,7 +4,7 @@
 #include lumi:shaders/lib/apply_bump.glsl
 
 /******************************************************
-  lumi:shaders/material/ore_metal.frag
+  lumi:shaders/material/nether_ore_gem.frag
 ******************************************************/
 
 void frx_startFragment(inout frx_FragmentData data) 
