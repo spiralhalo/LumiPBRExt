@@ -135,14 +135,6 @@
                 }
             },
             "material": "lumi:armor_smooth_transform"
-        },
-        {
-          "predicate": {
-                "materialPredicate": {
-                    "texture": "minecraft:textures/item/iron_sword.png"
-                }
-            },
-            "material": "lumi:armor_metal_transform"
         }
     ]
 }
