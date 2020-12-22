@@ -10,7 +10,7 @@ void frx_startFragment(inout frx_FragmentData data)
 #ifdef LUMI_PBR
     pbr_roughness = 0.1;
 #ifdef LUMI_BUMP
-#ifdef LUMI_BUMP_MINERALS
+#ifdef LUMI_ApplyBumpMinerals
     float resolution = 64;
     float coarseness = 0.2;
     vec2 uvN = floor(frx_var1.zw * resolution)/resolution;

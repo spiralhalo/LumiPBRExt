@@ -19,7 +19,7 @@ void frx_startFragment(inout frx_FragmentData data)
         pbr_metallic = 1.0;
         pbr_roughness = 0.6 - s * 0.5;
 #ifdef LUMI_BUMP
-#ifdef LUMI_BUMP_MINERALS
+#ifdef LUMI_ApplyBumpMinerals
         _applyBump_step_s(data, 0.4, 0.4, frx_modelOriginType() == MODEL_ORIGIN_REGION);
 #endif
 #endif

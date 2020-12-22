@@ -21,8 +21,10 @@ void frx_startFragment(inout frx_FragmentData data)
       pbr_metallic = 1.0;
       pbr_roughness = 0.6;
 #ifdef LUMI_BUMP
-#ifdef LUMI_BUMP_DEFAULT
+#ifdef LUMI_ApplyBumpDefault
+#ifdef LUMI_ApplyToolBump
       _applyBump_step(data, 0.25, 0.5);
+#endif
 #endif
 #endif
     }

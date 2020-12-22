@@ -1,10 +1,8 @@
 // Configuration
 
-#define LUMI_BumpMode 0
 #define LUMI_MaterialCoverage 0
-
-#define LUMI_BumpMode_BumpDefault 0
-#define LUMI_BumpMode_BumpMinerals 1
+#define LUMI_ApplyBumpDefault
+#define LUMI_ApplyBumpMinerals
 #define LUMI_ApplyToolBump
 #define LUMI_ApplyArmorBump
 #define LUMI_ApplyEntityBump
