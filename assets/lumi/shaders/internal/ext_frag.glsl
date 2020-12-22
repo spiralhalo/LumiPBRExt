@@ -7,6 +7,10 @@
 #include lumi:shaders/lib/bump_step.glsl
 #include lumi:shaders/lib/bump_step_s.glsl
 
+/******************************************************
+  lumi:shaders/internal/ext_frag.glsl
+******************************************************/
+
 #ifdef LUMI_BUMP
 void _applyBump(inout frx_FragmentData data) 
 {

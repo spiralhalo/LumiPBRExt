@@ -10,6 +10,7 @@
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
+#if LUMI_MaterialCoverage == LUMI_MaterialCoverage_ApplyAll
 #ifdef LUMI_PBR
   if(!frx_isGui()){
     vec4 c = data.spriteColor;
@@ -17,7 +18,6 @@ void frx_startFragment(inout frx_FragmentData data)
     float max_ = max( max(c.r, c.g), c.b );
     float s = max_ > 0 ? (max_ - min_) / max_ : 0;
     if (s < 0.25 || (c.g > c.b * 2 && max_ > 0.6)) {
-      data.spriteColor.rgb += 0.5;
       pbr_metallic = 1.0;
       pbr_roughness = 0.6;
 #ifdef LUMI_BUMP
@@ -29,5 +29,6 @@ void frx_startFragment(inout frx_FragmentData data)
 #endif
     }
   }
+#endif
 #endif
 }
