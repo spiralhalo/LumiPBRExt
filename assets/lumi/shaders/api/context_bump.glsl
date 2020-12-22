@@ -1,15 +1,8 @@
-/********************************************************
- * lumi:shaders/api/context_bump.glsl
- ********************************************************
- * Define all Lumi Bump API-related contexts here.
- ********************************************************/
-
-/* LUMI LIGHTS INTERNAL CONTEXTS 
- ********************************************************/
-/* Lumi Bump API functions only exist if this is defined.*/
+/****************************************************************************************
+ * lumi:shaders/api/context_bump.glsl                                                   *
+ *                                                                                      *
+ * This file is necessary if this resource pack requires bump, with this exact content. *
+ * If this resource pack does NOT require bump, this file must NOT exist at all.        *
+ ****************************************************************************************/
+ 
 #define LUMI_BUMP
-
-/* LUMI PBR EXT CONTEXTS 
- ********************************************************/
-#define LUMI_BUMP_DEFAULT
-#define LUMI_BUMP_MINERALS

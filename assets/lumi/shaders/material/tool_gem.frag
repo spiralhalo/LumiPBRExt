@@ -2,7 +2,7 @@
 #include frex:shaders/api/context.glsl
 #include frex:shaders/api/world.glsl
 #include lumi:shaders/lib/bump.glsl
-#include lumi:shaders/lib/apply_bump.glsl
+#include lumi:shaders/internal/ext_frag.glsl
 
 /******************************************************
   lumi:shaders/material/tool_gem.frag

@@ -1,4 +1,5 @@
 #include frex:shaders/api/fragment.glsl
+#include lumi:shaders/internal/ext_frag.glsl
 
 /******************************************************
   lumi:shaders/material/glass.frag

@@ -1,7 +1,6 @@
 #include frex:shaders/api/fragment.glsl
 #include frex:shaders/api/world.glsl
-#include lumi:shaders/lib/bump.glsl
-#include lumi:shaders/lib/apply_bump.glsl
+#include lumi:shaders/internal/ext_frag.glsl
 
 /******************************************************
   lumi:shaders/material/armor_metal.frag
