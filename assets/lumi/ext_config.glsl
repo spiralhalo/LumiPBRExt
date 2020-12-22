@@ -6,7 +6,7 @@
  ***********************************************************************************************/
 #define LUMI_MaterialCoverage 0
 
-/* Apply bumps to metal and gems */
+/* Apply bumps to stone, metal and gems */
 #define LUMI_ApplyBumpMinerals
 
 /* Apply bumps to everything else */
