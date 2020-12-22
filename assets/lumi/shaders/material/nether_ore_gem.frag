@@ -8,6 +8,7 @@
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
+#if LUMI_MaterialCoverage == LUMI_MaterialCoverage_ApplyAll
 #ifdef LUMI_PBR
   pbr_roughness = 0.7;
   if (data.spriteColor.r > 0.6) {
@@ -17,6 +18,8 @@ void frx_startFragment(inout frx_FragmentData data)
   #endif
   }
 #endif
+#endif
+
 #ifdef LUMI_BUMP
 #ifdef LUMI_ApplyBumpMinerals
   _applyBump(data);  

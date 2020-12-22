@@ -11,9 +11,12 @@ void frx_startFragment(inout frx_FragmentData data)
   if(data.spriteColor.r > data.spriteColor.b * 2){
     data.emissivity = 1.0;
   }
+#if LUMI_MaterialCoverage == LUMI_MaterialCoverage_ApplyAll
 #ifdef LUMI_PBR
   pbr_roughness = 0.7;
 #endif
+#endif
+
 #ifdef LUMI_BUMP
 #ifdef LUMI_ApplyBumpMinerals
     _applyBump(data);

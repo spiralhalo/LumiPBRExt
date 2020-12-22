@@ -9,6 +9,7 @@
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
+#if LUMI_MaterialCoverage == LUMI_MaterialCoverage_ApplyAll
 #ifdef LUMI_PBR
     vec4 c = data.spriteColor;
     float min_ = min( min(c.r, c.g), c.b );
@@ -24,5 +25,6 @@ void frx_startFragment(inout frx_FragmentData data)
 #endif
 #endif
     }
+#endif
 #endif
 }

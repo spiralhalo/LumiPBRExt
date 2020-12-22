@@ -9,11 +9,12 @@
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
-#ifdef LUMI_PBR
     vec4 c = data.spriteColor;
     if (c.r > c.g * 2) {
         data.emissivity = 1.0;
     }
+#if LUMI_MaterialCoverage == LUMI_MaterialCoverage_ApplyAll
+#ifdef LUMI_PBR
     float min_ = min( min(c.r, c.g), c.b );
     float max_ = max( max(c.r, c.g), c.b );
     float s = max_ > 0 ? (max_ - min_) / max_ : 0;
@@ -26,5 +27,6 @@ void frx_startFragment(inout frx_FragmentData data)
 #endif
 #endif
     }
+#endif
 #endif
 }
