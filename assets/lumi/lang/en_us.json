@@ -1,0 +1,8 @@
+{
+    "respackopts.title.LUMI": "Lumi Lights",
+    "respackopts.field.LUMI.MaterialCoverage": "Material coverage",
+    "respackopts.field.LUMI.ApplyBumpMinerals": "Bumps on stone, bricks, metal, and gems",
+    "respackopts.field.LUMI.ApplyBumpDefault": "Bumps on wood, dirt, and everything else",
+    "respackopts.field.LUMI.ApplyToolBump": "Bumps on tools"
+}
+  
