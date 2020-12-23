@@ -13,7 +13,7 @@
 vec3 bump_step_s_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, float step_, float strength, bool reverse)
 {
     vec3 tangentMove = l2_tangent * (reverse ? -1 : 1);
-    vec3 bitangentMove = l2_bitangent;
+    vec3 bitangentMove = l2_bitangent * (reverse ? -1 : 1);
     
     vec4  c         = texture2D(tex, uvn, _cv_getFlag(_CV_FLAG_UNMIPPED) * -4.0);
     float min_      = min( min(c.r, c.g), c.b );
