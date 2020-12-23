@@ -8,7 +8,7 @@
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
-#ifdef LUMI_PBR
+#ifdef LUMI_PBRX
   pbr_roughness = 0.7;
 #endif
 #ifdef LUMI_BUMP

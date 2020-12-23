@@ -11,7 +11,7 @@
 void frx_startFragment(inout frx_FragmentData data) 
 {
 #if LUMI_MaterialCoverage == LUMI_MaterialCoverage_ApplyAll
-#ifdef LUMI_PBR
+#ifdef LUMI_PBRX
   if (data.spriteColor.b > data.spriteColor.r) {
   #if LUMI_PBR_API >= 1
     pbr_f0 = vec3(0.17);

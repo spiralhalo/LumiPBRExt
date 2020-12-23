@@ -12,7 +12,7 @@ void frx_startFragment(inout frx_FragmentData data)
     data.emissivity = 1.0;
   }
 #if LUMI_MaterialCoverage == LUMI_MaterialCoverage_ApplyAll
-#ifdef LUMI_PBR
+#ifdef LUMI_PBRX
   pbr_roughness = 0.7;
 #endif
 #endif

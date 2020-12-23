@@ -10,7 +10,7 @@
 void frx_startFragment(inout frx_FragmentData data) 
 {
 #if LUMI_MaterialCoverage == LUMI_MaterialCoverage_ApplyAll
-#ifdef LUMI_PBR
+#ifdef LUMI_PBRX
     vec4 c = data.spriteColor;
     float min_ = min( min(c.r, c.g), c.b );
     float max_ = max( max(c.r, c.g), c.b );

@@ -9,7 +9,7 @@
 void frx_startFragment(inout frx_FragmentData data) 
 {
 #if LUMI_MaterialCoverage == LUMI_MaterialCoverage_ApplyAll
-#ifdef LUMI_PBR
+#ifdef LUMI_PBRX
   pbr_roughness = 0.7;
   if (data.spriteColor.r > 0.6) {
     pbr_roughness = 0.2;

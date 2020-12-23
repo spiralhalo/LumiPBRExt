@@ -14,7 +14,7 @@ void frx_startFragment(inout frx_FragmentData data)
         data.emissivity = 1.0;
     }
 #if LUMI_MaterialCoverage == LUMI_MaterialCoverage_ApplyAll
-#ifdef LUMI_PBR
+#ifdef LUMI_PBRX
     float min_ = min( min(c.r, c.g), c.b );
     float max_ = max( max(c.r, c.g), c.b );
     float s = max_ > 0 ? (max_ - min_) / max_ : 0;

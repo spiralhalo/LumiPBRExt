@@ -8,7 +8,7 @@
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
-#ifdef LUMI_PBR
+#ifdef LUMI_PBRX
   // pbr_metallic = 0.177083 / (frx_luminance(data.spriteColor.rgb));
   pbr_roughness = 0.1;
   #if LUMI_PBR_API >= 1
