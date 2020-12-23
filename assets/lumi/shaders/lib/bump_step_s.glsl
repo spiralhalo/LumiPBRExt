@@ -7,12 +7,13 @@
 
 #include lumi:shaders/lib/bump.glsl
 
+#ifndef VERTEX_SHADER
 #ifdef LUMI_BUMP
 /* Generate binary bump map by checking texel saturation against a value defined by `step_`.*/
 vec3 bump_step_s_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, float step_, float strength, bool reverse)
 {
-    vec3 tangentMove = _bump_tangentMove(normal) * (reverse ? -1 : 1);
-    vec3 bitangentMove = _bump_bitangentMove(normal, tangentMove);
+    vec3 tangentMove = l2_tangent * (reverse ? -1 : 1);
+    vec3 bitangentMove = l2_bitangent;
     
     vec4  c         = texture2D(tex, uvn, _cv_getFlag(_CV_FLAG_UNMIPPED) * -4.0);
     float min_      = min( min(c.r, c.g), c.b );
@@ -34,4 +35,5 @@ vec3 bump_step_s_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb
 
     return normalize(cross(tangent, bitangent));
 }
+#endif
 #endif
