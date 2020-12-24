@@ -9,7 +9,7 @@
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
-#if LUMI_MaterialCoverage == LUMI_MaterialCoverage_ApplyAll
+#if LUMIEXT_MaterialCoverage == LUMIEXT_MaterialCoverage_ApplyAll
 #ifdef LUMI_PBRX
     vec4 c = data.spriteColor;
     float min_ = min( min(c.r, c.g), c.b );
@@ -20,7 +20,7 @@ void frx_startFragment(inout frx_FragmentData data)
         pbr_metallic = 1.0;
         pbr_roughness = 0.6 - s * 0.5;
 #ifdef LUMI_BUMP
-#ifdef LUMI_ApplyBumpMinerals
+#ifdef LUMIEXT_ApplyBumpMinerals
         _applyBump_step_s(data, 0.4, 0.4, frx_modelOriginType() == MODEL_ORIGIN_REGION);
 #endif
 #endif

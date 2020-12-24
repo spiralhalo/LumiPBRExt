@@ -18,7 +18,7 @@ void frx_startFragment(inout frx_FragmentData data)
   #endif
 #endif
 #ifdef LUMI_BUMP
-#ifdef LUMI_ApplyBumpMinerals
+#ifdef LUMIEXT_ApplyBumpMinerals
   float resolution = 16;
   float coarseness = 0.2;
   vec2 spriteUV = frx_var1.zw;

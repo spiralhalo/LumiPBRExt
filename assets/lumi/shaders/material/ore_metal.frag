@@ -8,7 +8,7 @@
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
-#if LUMI_MaterialCoverage == LUMI_MaterialCoverage_ApplyAll
+#if LUMIEXT_MaterialCoverage == LUMIEXT_MaterialCoverage_ApplyAll
 #ifdef LUMI_PBRX
   pbr_roughness = 0.7;
   vec3 c = data.spriteColor.rgb;
@@ -23,7 +23,7 @@ void frx_startFragment(inout frx_FragmentData data)
 #endif
 
 #ifdef LUMI_BUMP
-#ifdef LUMI_ApplyBumpMinerals
+#ifdef LUMIEXT_ApplyBumpMinerals
   _applyBump(data);  
   // data.spriteColor.rgb *= (data.vertexNormal + 1) * 0.5;
 #endif
