@@ -2,13 +2,13 @@
   "id": "LUMIEXT",
   "version": 1,
   "conf": {
-    "UseConfig": true,
     "MaterialCoverage": [
       "ApplyAll",
       "NonVanillaFriendly"
     ],
     "ApplyBumpMinerals": true,
     "ApplyBumpDefault": true,
-    "ApplyToolBump": true
+    "ApplyToolBump": true,
+    "SystemMustEnable": true
   }
 }
