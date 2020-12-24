@@ -1,6 +1,6 @@
 #include frex:shaders/api/sampler.glsl
 #include frex:shaders/api/fragment.glsl
-#include lumi:ext_config.glsl
+#include respackopts:config_supplier
 #include lumi:shaders/lib/bump.glsl
 #include lumi:shaders/lib/bump_dark.glsl
 #include lumi:shaders/lib/bump_alpha.glsl

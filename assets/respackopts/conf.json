@@ -1,0 +1,13 @@
+{
+  "id": "LUMI",
+  "version": 1,
+  "conf": {
+    "MaterialCoverage": [
+      "ApplyAll",
+      "NonVanillaFriendly"
+    ],
+    "ApplyBumpMinerals": true,
+    "ApplyBumpDefault": true,
+    "ApplyToolBump": true
+  }
+}
