@@ -10,7 +10,7 @@
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
-#if LUMI_MaterialCoverage == LUMI_MaterialCoverage_ApplyAll
+#if LUMIEXT_MaterialCoverage == LUMIEXT_MaterialCoverage_ApplyAll
 #ifdef LUMI_PBRX
   if(!frx_isGui()){
     vec4 c = data.spriteColor;
@@ -21,8 +21,8 @@ void frx_startFragment(inout frx_FragmentData data)
       pbr_metallic = 1.0;
       pbr_roughness = 0.6;
 #ifdef LUMI_BUMP
-#ifdef LUMI_ApplyBumpDefault
-#ifdef LUMI_ApplyToolBump
+#ifdef LUMIEXT_ApplyBumpDefault
+#ifdef LUMIEXT_ApplyToolBump
       _applyBump_step(data, 0.25, 0.5);
 #endif
 #endif
