@@ -16,7 +16,7 @@ void frx_startFragment(inout frx_FragmentData data)
     data.vertexColor.rgb = mix(data.vertexColor.rgb, desat, 0.7);
     float maxc = max(data.spriteColor.r, max(data.spriteColor.g, data.spriteColor.b)); 
     data.spriteColor.rgb *= data.spriteColor.rgb * data.spriteColor.rgb * 2.0;
-    data.spriteColor.a = 0.8;
+    // data.spriteColor.a = min(0.8, data.spriteColor.a);
   } else
   // probably lava cauldron ??
   if (data.spriteColor.r * 0.8 > data.spriteColor.b) {
