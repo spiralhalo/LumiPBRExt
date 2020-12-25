@@ -13,7 +13,10 @@
 vec3 bump_alpha_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb)
 {
     vec3 tangentMove = l2_tangent;
-    vec3 bitangentMove = l2_bitangent;
+    vec3 bitangentMove = cross(normal, l2_tangent);
+
+    if (uvn.x > bump_topRightUv.x) { uvt = uvn; }
+    if (uvn.y < bump_topRightUv.y) { uvb = uvn; }
 
     vec3 origin = _bump_height(texture2D(tex, uvn, _cv_getFlag(_CV_FLAG_UNMIPPED) * -4.0).a) * normal;
     vec3 tangent = tangentMove + _bump_height(texture2D(tex, uvt, _cv_getFlag(_CV_FLAG_UNMIPPED) * -4.0).a) * normal - origin;
