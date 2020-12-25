@@ -1,0 +1,5 @@
+{
+    "blendMode": "translucent",
+    "vertexSource": "lumi:shaders/material/default.vert",
+    "fragmentSource": "lumi:shaders/material/wrought_iron.frag"
+}
