@@ -6,6 +6,7 @@
 #include lumi:shaders/lib/bump_alpha.glsl
 #include lumi:shaders/lib/bump_step.glsl
 #include lumi:shaders/lib/bump_step_s.glsl
+#include lumi:shaders/lib/bump_coarse.glsl
 
 /******************************************************
   lumi:shaders/internal/ext_frag.glsl
