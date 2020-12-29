@@ -23,7 +23,7 @@ void frx_startFragment(inout frx_FragmentData data)
 #ifdef LUMI_BUMP
 #ifdef LUMIEXT_ApplyBumpDefault
 #ifdef LUMIEXT_ApplyToolBump
-      _applyBump_step(data, 0.25, 0.5);
+      _applyBump_step(data, 0.25, 0.5, false);
 #endif
 #endif
 #endif

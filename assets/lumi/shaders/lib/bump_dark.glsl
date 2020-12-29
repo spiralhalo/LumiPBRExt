@@ -10,10 +10,10 @@
 #ifndef VERTEX_SHADER
 #ifdef LUMI_BUMP
 /* Generate bump map by using texel luminance times a multiplier. */
-vec3 bump_dark_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, float colorMult)
+vec3 bump_dark_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, float colorMult, bool reverse)
 {
-    vec3 tangentMove = l2_tangent;
-    vec3 bitangentMove = cross(normal, l2_tangent);
+    vec3 tangentMove = l2_tangent * (reverse ? -1.0 : 1.0);
+    vec3 bitangentMove = cross(normal, l2_tangent) * (reverse ? -1.0 : 1.0);
 
     if (uvn.x > bump_topRightUv.x) { uvt = uvn; }
     if (uvn.y < bump_topRightUv.y) { uvb = uvn; }

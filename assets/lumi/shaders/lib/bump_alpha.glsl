@@ -10,10 +10,10 @@
 #ifndef VERTEX_SHADER
 #ifdef LUMI_BUMP
 /* Generate bumpy edge between solid and transparent texels. */
-vec3 bump_alpha_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb)
+vec3 bump_alpha_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, bool reverse)
 {
-    vec3 tangentMove = l2_tangent;
-    vec3 bitangentMove = cross(normal, l2_tangent);
+    vec3 tangentMove = l2_tangent * (reverse ? -1.0 : 1.0);
+    vec3 bitangentMove = cross(normal, l2_tangent) * (reverse ? -1.0 : 1.0);
 
     if (uvn.x > bump_topRightUv.x) { uvt = uvn; }
     if (uvn.y < bump_topRightUv.y) { uvb = uvn; }
