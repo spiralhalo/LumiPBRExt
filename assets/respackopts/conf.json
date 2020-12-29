@@ -8,7 +8,6 @@
     ],
     "ApplyBumpMinerals": true,
     "ApplyBumpDefault": true,
-    "ApplyToolBump": true,
-    "SystemMustEnable": true
+    "ApplyToolBump": true
   }
 }

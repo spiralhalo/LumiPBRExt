@@ -3,7 +3,6 @@
     "respackopts.field.LUMIEXT.MaterialCoverage": "Material coverage",
     "respackopts.field.LUMIEXT.ApplyBumpMinerals": "Bumps on stone, bricks, metal, and gems",
     "respackopts.field.LUMIEXT.ApplyBumpDefault": "Bumps on wood, dirt, and everything else",
-    "respackopts.field.LUMIEXT.ApplyToolBump": "Bumps on tools",
-    "respackopts.field.LUMIEXT.SystemMustEnable": "[SYSTEM] MUST BE ENABLED"
+    "respackopts.field.LUMIEXT.ApplyToolBump": "Bumps on tools"
 }
   

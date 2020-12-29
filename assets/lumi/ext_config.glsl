@@ -7,7 +7,7 @@
  *******************************/
 
 #include respackopts:config_supplier
-#ifndef LUMIEXT_SystemMustEnable
+#ifndef respackopts_loaded
 
 #define LUMIEXT_MaterialCoverage_ApplyAll 0
 #define LUMIEXT_MaterialCoverage_NonVanillaFriendly 1
