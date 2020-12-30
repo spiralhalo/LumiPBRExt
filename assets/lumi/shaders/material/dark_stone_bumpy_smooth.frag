@@ -9,7 +9,7 @@
 void frx_startFragment(inout frx_FragmentData data) 
 {
 #ifdef LUMI_PBRX
-  pbr_roughness = 0.4;
+  pbr_roughness = 0.7;
 #endif
 #ifdef LUMI_BUMP
 #ifdef LUMIEXT_ApplyBumpMinerals
