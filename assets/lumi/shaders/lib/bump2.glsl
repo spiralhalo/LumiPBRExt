@@ -7,7 +7,7 @@
 
 #ifndef VERTEX_SHADER
 #ifdef LUMI_BUMP
-#define _bump_height2(x) (x.r + x.g + x.b) * 0.33333 * 2.0
+#define _bump_height2(x) sqrt((x.r + x.g + x.b) * 0.33333 * 2.0)
 #define max_delta 0.2
 vec3 bump_normal2(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, bool reverse)
 {
@@ -22,12 +22,10 @@ vec3 bump_normal2(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, bool
     vec3 origin = hn * normal;
     texel = texture2D(tex, uvt, _cv_getFlag(_CV_FLAG_UNMIPPED) * -4.0).rgb;
     float ht = _bump_height2(texel);
-    float delta = clamp(ht - hn, -max_delta, max_delta);
-    vec3 tangent = tangentMove + (hn + delta) * normal - origin;
+    vec3 tangent = tangentMove + ht * normal - origin;
     texel = texture2D(tex, uvb, _cv_getFlag(_CV_FLAG_UNMIPPED) * -4.0).rgb;
     float hb = _bump_height2(texel);
-    delta = clamp(hb - hn, -max_delta, max_delta);
-    vec3 bitangent = bitangentMove + (hn + delta) * normal - origin;
+    vec3 bitangent = bitangentMove + hb * normal - origin;
 
     return normalize(cross(tangent, bitangent));
 }
