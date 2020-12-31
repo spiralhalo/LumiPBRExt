@@ -1,4 +1,5 @@
 {
+    "disableDiffuse": true,
     "vertexSource": "lumi:shaders/material/default.vert",
-    "fragmentSource": "lumi:shaders/material/nether_ore_gem.frag"
+    "fragmentSource": "lumi:shaders/material/nether_ore.frag"
 }

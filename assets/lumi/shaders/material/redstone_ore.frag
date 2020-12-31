@@ -8,6 +8,9 @@
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
+  if (data.emissivity > 0) {
+    
+  }
   if(data.spriteColor.r > data.spriteColor.b * 2){
     data.emissivity = 1.0;
   }

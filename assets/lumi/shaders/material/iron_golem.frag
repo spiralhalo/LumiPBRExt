@@ -9,7 +9,7 @@
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
-#ifdef LUMI_PBRX
+  #ifdef LUMI_PBRX
     vec4 c = data.spriteColor;
     float min_ = min( min(c.r, c.g), c.b );
     float max_ = max( max(c.r, c.g), c.b );
@@ -20,13 +20,13 @@ void frx_startFragment(inout frx_FragmentData data)
         pbr_metallic = 1.0;
         pbr_roughness = 0.5 - s * 0.2;
     }
-#ifdef LUMI_BUMP
-#ifdef LUMIEXT_ApplyBumpDefault
-    _applyBump(data);
-#endif
-#endif
-#endif
-    if(data.spriteColor.r > data.spriteColor.g * 2) {
-        data.emissivity = 1.0;
-    }
+    #ifdef LUMI_BUMP
+      #ifdef LUMIEXT_ApplyBumpDefault
+        _applyBump(data);
+      #endif
+    #endif
+  #endif
+  if(data.spriteColor.r > data.spriteColor.g * 2) {
+      data.emissivity = 1.0;
+  }
 }

@@ -2,7 +2,7 @@
 #include frex:shaders/api/fragment.glsl
 #include lumi:ext_config.glsl
 #include lumi:shaders/lib/bump.glsl
-#include lumi:shaders/lib/bump_dark.glsl
+#include lumi:shaders/lib/bump2.glsl
 #include lumi:shaders/lib/bump_alpha.glsl
 #include lumi:shaders/lib/bump_step.glsl
 #include lumi:shaders/lib/bump_step_s.glsl
@@ -18,19 +18,19 @@ void _applyBump(inout frx_FragmentData data)
   vec2 uvN = frx_var0.xy;
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
-  data.vertexNormal = frx_normalModelMatrix() * bump_normal(
+  data.vertexNormal = frx_normalModelMatrix() * bump_normal2(
     frxs_spriteAltas, data.vertexNormal * frx_normalModelMatrix(),
-    uvN, uvT, uvB);
+    uvN, uvT, uvB, false);
 }
 
-void _applyBump_dark(inout frx_FragmentData data, float colorMult, bool reverse) 
+void _applyBump(inout frx_FragmentData data, bool reverse) 
 {
   vec2 uvN = frx_var0.xy;
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
-  data.vertexNormal = frx_normalModelMatrix() * bump_dark_normal(
+  data.vertexNormal = frx_normalModelMatrix() * bump_normal2(
     frxs_spriteAltas, data.vertexNormal * frx_normalModelMatrix(),
-    uvN, uvT, uvB, colorMult, reverse);
+    uvN, uvT, uvB, reverse);
 }
 
 void _applyBump_alpha(inout frx_FragmentData data, bool reverse) 

@@ -1,4 +1,5 @@
 {
+    "disableDiffuse": false,
     "vertexSource": "lumi:shaders/material/default.vert",
-    "fragmentSource": "lumi:shaders/material/tool_metal.frag"
+    "fragmentSource": "lumi:shaders/material/tool.frag"
 }

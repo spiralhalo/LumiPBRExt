@@ -1,11 +1,11 @@
 {
-    "defaultMaterial": "lumi:dark_bumpy_side",
+    "defaultMaterial": "lumi:default_bumpy_side",
     "variants": {
         "axis=x":{
-            "defaultMaterial": "lumi:dark_bumpy_side_x"
+            "defaultMaterial": "lumi:default_bumpy_side_x"
         },
         "axis=z":{
-            "defaultMaterial": "lumi:dark_bumpy_side_z"
+            "defaultMaterial": "lumi:default_bumpy_side_z"
         }
     }
 }
