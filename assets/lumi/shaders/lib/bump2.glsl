@@ -22,12 +22,12 @@ vec3 bump_normal2(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, bool
     vec3 origin = hn * normal;
     texel = texture2D(tex, uvt, _cv_getFlag(_CV_FLAG_UNMIPPED) * -4.0).rgb;
     float ht = _bump_height2(texel);
-    float delta = ht - hn;
-    vec3 tangent = tangentMove + min(hn + delta, hn + max_delta) * normal - origin;
+    float delta = clamp(ht - hn, -max_delta, max_delta);
+    vec3 tangent = tangentMove + (hn + delta) * normal - origin;
     texel = texture2D(tex, uvb, _cv_getFlag(_CV_FLAG_UNMIPPED) * -4.0).rgb;
     float hb = _bump_height2(texel);
-    delta = hb - hn;
-    vec3 bitangent = bitangentMove + min(hn + delta, hn + max_delta) * normal - origin;
+    delta = clamp(hb - hn, -max_delta, max_delta);
+    vec3 bitangent = bitangentMove + (hn + delta) * normal - origin;
 
     return normalize(cross(tangent, bitangent));
 }
