@@ -16,10 +16,8 @@ void frx_startFragment(inout frx_FragmentData data)
     }
   #endif
 
-  #ifdef LUMI_BUMP
   #ifdef LUMIEXT_ApplyBumpMinerals
     _applyBump(data);
-  #endif
   #endif
 
   // Crying obsidian

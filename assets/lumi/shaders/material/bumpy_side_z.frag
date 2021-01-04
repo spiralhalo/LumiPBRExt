@@ -8,11 +8,9 @@
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
-  #ifdef LUMI_BUMP
-    #ifdef LUMIEXT_ApplyBumpDefault
-      if (abs(data.vertexNormal.z) < 0.02) {
-        _applyBump(data);
-      }
-    #endif
+  #ifdef LUMIEXT_ApplyBumpDefault
+    if (abs(data.vertexNormal.z) < 0.02) {
+      _applyBump(data);
+    }
   #endif
 }

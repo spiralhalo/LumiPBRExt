@@ -15,15 +15,13 @@ void frx_startFragment(inout frx_FragmentData data)
     data.emissivity = 1.0;
   }
 #if LUMIEXT_MaterialCoverage == LUMIEXT_MaterialCoverage_ApplyAll
-#ifdef LUMI_PBRX
-  pbr_roughness = 0.7;
-#endif
+  #ifdef LUMI_PBRX
+    pbr_roughness = 0.7;
+  #endif
 #endif
 
-#ifdef LUMI_BUMP
 #ifdef LUMIEXT_ApplyBumpMinerals
     _applyBump(data);
     // data.spriteColor.rgb *= (data.vertexNormal + 1) * 0.5;
-#endif
 #endif
 }

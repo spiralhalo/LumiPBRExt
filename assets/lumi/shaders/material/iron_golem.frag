@@ -1,6 +1,5 @@
 #include frex:shaders/api/fragment.glsl
 #include frex:shaders/api/world.glsl
-#include lumi:shaders/lib/bump.glsl
 #include lumi:shaders/internal/ext_frag.glsl
 
 /******************************************************
@@ -20,10 +19,8 @@ void frx_startFragment(inout frx_FragmentData data)
         pbr_metallic = 1.0;
         pbr_roughness = 0.5 - s * 0.2;
     }
-    #ifdef LUMI_BUMP
-      #ifdef LUMIEXT_ApplyBumpDefault
-        _applyBump(data);
-      #endif
+    #ifdef LUMIEXT_ApplyBumpDefault
+      _applyBump(data);
     #endif
   #endif
   if(data.spriteColor.r > data.spriteColor.g * 2) {

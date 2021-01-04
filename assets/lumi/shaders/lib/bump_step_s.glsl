@@ -5,32 +5,28 @@
  * LICENSED under LGPL-3.0 and provided WITHOUT WARRANTY.
  ********************************************************/
 
-#include lumi:shaders/lib/bump.glsl
-
-#ifndef VERTEX_SHADER
-#ifdef LUMI_BUMP
 /* Generate binary bump map by checking texel saturation against a value defined by `step_`.*/
-vec3 bump_step_s_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, float step_, float strength, bool reverse)
+vec3 bump_step_s_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, vec2 topRight, vec3 bump_tangent, float step_, float strength, bool reverse)
 {
-    vec3 tangentMove = l2_tangent * (reverse ? -1.0 : 1.0);
-    vec3 bitangentMove = cross(normal, l2_tangent) * (reverse ? -1.0 : 1.0);
+    vec3 tangentMove = bump_tangent * (reverse ? -1.0 : 1.0);
+    vec3 bitangentMove = cross(normal, bump_tangent) * (reverse ? -1.0 : 1.0);
 
-    if (uvn.x > bump_topRightUv.x) { uvt = uvn; }
-    if (uvn.y < bump_topRightUv.y) { uvb = uvn; }
+    if (uvn.x > topRight.x) { uvt = uvn; }
+    if (uvn.y < topRight.y) { uvb = uvn; }
     
-    vec4  c         = texture2D(tex, uvn, _cv_getFlag(_CV_FLAG_UNMIPPED) * -4.0);
+    vec4  c         = texture2D(tex, uvn, frx_matUnmippedFactor() * -4.0);
     float min_      = min( min(c.r, c.g), c.b );
     float max_      = max( max(c.r, c.g), c.b );
     float s         = (max_ > 0 ? (max_ - min_) / max_ : 0) + (1 - c.a);
     vec3  origin    = (s > step_ ? strength : 0.0) * normal;
     
-          c         = texture2D(tex, uvt, _cv_getFlag(_CV_FLAG_UNMIPPED) * -4.0);
+          c         = texture2D(tex, uvt, frx_matUnmippedFactor() * -4.0);
           min_      = min( min(c.r, c.g), c.b );
           max_      = max( max(c.r, c.g), c.b );
           s         = (max_ > 0 ? (max_ - min_) / max_ : 0) + (1 - c.a);
     vec3  tangent   = tangentMove + (s > step_ ? strength : 0.0) * normal - origin;
     
-          c         = texture2D(tex, uvb, _cv_getFlag(_CV_FLAG_UNMIPPED) * -4.0);
+          c         = texture2D(tex, uvb, frx_matUnmippedFactor() * -4.0);
           min_      = min( min(c.r, c.g), c.b );
           max_      = max( max(c.r, c.g), c.b );
           s         = (max_ > 0 ? (max_ - min_) / max_ : 0) + (1 - c.a);
@@ -38,5 +34,3 @@ vec3 bump_step_s_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb
 
     return normalize(cross(tangent, bitangent));
 }
-#endif
-#endif

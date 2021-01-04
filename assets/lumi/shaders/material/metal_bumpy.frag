@@ -20,21 +20,18 @@ void frx_startFragment(inout frx_FragmentData data)
       float maxc = max(data.spriteColor.r, max(data.spriteColor.g, data.spriteColor.b)); 
       data.spriteColor.rgb *= data.spriteColor.rgb * data.spriteColor.rgb * 2.0;
       // data.spriteColor.a = min(0.8, data.spriteColor.a);
-    } else
+    } else {
       // probably lava cauldron ??
       if (data.spriteColor.r * 0.8 > data.spriteColor.b) {
         data.emissivity = 1.0;
-      } else {
-        
+      } 
       #ifdef LUMI_PBRX
         pbr_metallic = 1.0;
         pbr_roughness = 0.5;
         data.spriteColor.rgb *= 2;
       #endif
-      #ifdef LUMI_BUMP
       #ifdef LUMIEXT_ApplyBumpMinerals
         _applyBump(data);
-      #endif
       #endif
     }
   } else {
@@ -42,7 +39,6 @@ void frx_startFragment(inout frx_FragmentData data)
       pbr_metallic = 1.0;
       pbr_roughness = 0.5;
     #endif
-    #ifdef LUMI_BUMP
     #ifdef LUMIEXT_ApplyBumpMinerals
       if (!data.diffuse) {
         vec2 spriteUV = frx_var1.zw;
@@ -56,7 +52,6 @@ void frx_startFragment(inout frx_FragmentData data)
       } else {
         _applyBump(data);
       }
-    #endif
     #endif
   }
   

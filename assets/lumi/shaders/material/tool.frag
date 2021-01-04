@@ -1,7 +1,6 @@
 #include frex:shaders/api/fragment.glsl
 #include frex:shaders/api/context.glsl
 #include frex:shaders/api/world.glsl
-#include lumi:shaders/lib/bump.glsl
 #include lumi:shaders/internal/ext_frag.glsl
 
 /******************************************************
@@ -18,12 +17,10 @@ void frx_startFragment(inout frx_FragmentData data)
             pbr_f0 = vec3(0.17);
           #endif
           pbr_roughness = 0.05;
-          #ifdef LUMI_BUMP
           #ifdef LUMIEXT_ApplyBumpDefault
-          #ifdef LUMIEXT_ApplyToolBump
-            _applyBump_step(data, 0.25, 0.8, false);
-          #endif
-          #endif
+            #ifdef LUMIEXT_ApplyToolBump
+              _applyBump_step(data, 0.25, 0.8, false);
+            #endif
           #endif
         }
       #endif
@@ -39,12 +36,10 @@ void frx_startFragment(inout frx_FragmentData data)
           if (s < 0.25 || (c.g > c.b * 2 && max_ > 0.6)) {
             pbr_metallic = 1.0;
             pbr_roughness = 0.6;
-            #ifdef LUMI_BUMP
             #ifdef LUMIEXT_ApplyBumpDefault
-            #ifdef LUMIEXT_ApplyToolBump
-              _applyBump_step(data, 0.25, 0.5, false);
-            #endif
-            #endif
+              #ifdef LUMIEXT_ApplyToolBump
+                _applyBump_step(data, 0.25, 0.5, false);
+              #endif
             #endif
           }
         }

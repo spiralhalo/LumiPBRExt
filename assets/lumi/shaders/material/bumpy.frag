@@ -8,9 +8,7 @@
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
-  #ifdef LUMI_BUMP
-    #ifdef LUMIEXT_ApplyBumpDefault
-      _applyBump(data);
-    #endif
+  #ifdef LUMIEXT_ApplyBumpDefault
+    _applyBump(data);
   #endif
 }

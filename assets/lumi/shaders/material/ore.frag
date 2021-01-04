@@ -20,10 +20,8 @@ void frx_startFragment(inout frx_FragmentData data)
       pbr_roughness = 0.7;
     #endif
 
-    #ifdef LUMI_BUMP
     #ifdef LUMIEXT_ApplyBumpMinerals
       _applyBump(data);
-    #endif
     #endif
   
   } else {
@@ -49,11 +47,9 @@ void frx_startFragment(inout frx_FragmentData data)
     #endif
     #endif
 
-    #ifdef LUMI_BUMP
     #ifdef LUMIEXT_ApplyBumpMinerals
       _applyBump(data);
       // data.spriteColor.rgb *= (data.vertexNormal + 1) * 0.5;
-    #endif
     #endif
   }
 
