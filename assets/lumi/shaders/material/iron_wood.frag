@@ -15,7 +15,7 @@ void frx_startFragment(inout frx_FragmentData data)
       float max_ = max( max(c.r, c.g), c.b );
       float s = max_ > 0 ? (max_ - min_) / max_ : 0;
       if (s < 0.4) {
-        data.spriteColor.rgb += (1-min_) * 0.3;
+        // data.spriteColor.rgb += (1-min_) * 0.3;
         pbr_metallic = 1.0;
         pbr_roughness = 0.6 - s * 0.5;
         #ifdef LUMIEXT_ApplyBumpMinerals

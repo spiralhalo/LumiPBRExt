@@ -14,7 +14,7 @@ void frx_startFragment(inout frx_FragmentData data)
       #ifdef LUMI_PBRX
         if (data.spriteColor.b > data.spriteColor.r) {
           #if LUMI_PBR_API >= 1
-            pbr_f0 = vec3(0.17);
+            pbr_f0 = 0.17;
           #endif
           pbr_roughness = 0.05;
           #ifdef LUMIEXT_ApplyBumpDefault
