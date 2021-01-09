@@ -1,6 +1,7 @@
 #include frex:shaders/api/fragment.glsl
 #include frex:shaders/api/context.glsl
 #include frex:shaders/api/world.glsl
+#include frex:shaders/api/view.glsl
 #include lumi:shaders/internal/ext_frag.glsl
 
 /******************************************************
@@ -9,6 +10,7 @@
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
+  if (frx_isGui()) return;
   #if LUMIEXT_MaterialCoverage == LUMIEXT_MaterialCoverage_ApplyAll
     if (!data.diffuse) {
       #ifdef LUMI_PBRX
@@ -28,20 +30,18 @@ void frx_startFragment(inout frx_FragmentData data)
     } else {
 
       #ifdef LUMI_PBRX
-        if(!frx_isGui()){
-          vec4 c = data.spriteColor;
-          float min_ = min( min(c.r, c.g), c.b );
-          float max_ = max( max(c.r, c.g), c.b );
-          float s = max_ > 0 ? (max_ - min_) / max_ : 0;
-          if (s < 0.25 || (c.g > c.b * 2 && max_ > 0.6)) {
-            pbr_metallic = 1.0;
-            pbr_roughness = 0.6;
-            #ifdef LUMIEXT_ApplyBumpDefault
-              #ifdef LUMIEXT_ApplyToolBump
-                _applyBump_step(data, 0.25, 0.5, false);
-              #endif
+        vec4 c = data.spriteColor;
+        float min_ = min( min(c.r, c.g), c.b );
+        float max_ = max( max(c.r, c.g), c.b );
+        float s = max_ > 0 ? (max_ - min_) / max_ : 0;
+        if (s < 0.25 || (c.g > c.b * 2 && max_ > 0.6)) {
+          pbr_metallic = 1.0;
+          pbr_roughness = 0.6;
+          #ifdef LUMIEXT_ApplyBumpDefault
+            #ifdef LUMIEXT_ApplyToolBump
+              _applyBump_step(data, 0.25, 0.5, false);
             #endif
-          }
+          #endif
         }
       #endif
     }

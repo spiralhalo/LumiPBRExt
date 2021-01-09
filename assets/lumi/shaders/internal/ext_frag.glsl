@@ -3,6 +3,7 @@
 #include frex:shaders/api/fragment.glsl
 #include frex:shaders/api/material.glsl
 #include lumi:ext_config.glsl
+#include lumi:shaders/api/param_frag.glsl
 #include lumi:shaders/internal/ext_varying.glsl
 
 /* legacy bump height */

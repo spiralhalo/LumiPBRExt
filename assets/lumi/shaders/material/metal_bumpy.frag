@@ -18,7 +18,7 @@ void frx_startFragment(inout frx_FragmentData data)
       #endif
       vec3 desat = vec3(frx_luminance(data.vertexColor.rgb));
       data.vertexColor.rgb = mix(data.vertexColor.rgb, desat, 0.7);
-      float maxc = max(data.spriteColor.r, max(data.spriteColor.g, data.spriteColor.b)); 
+      // float maxc = max(data.spriteColor.r, max(data.spriteColor.g, data.spriteColor.b)); 
       data.spriteColor.rgb *= data.spriteColor.rgb * data.spriteColor.rgb * 2.0;
       is_liquid = true;
       // data.spriteColor.a = min(0.8, data.spriteColor.a);
