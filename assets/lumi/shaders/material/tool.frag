@@ -21,7 +21,7 @@ void frx_startFragment(inout frx_FragmentData data)
           pbr_roughness = 0.05;
           #ifdef LUMIEXT_ApplyBumpDefault
             #ifdef LUMIEXT_ApplyToolBump
-              _applyBump_step(data, 0.25, 0.8, false);
+              _applyBump_step(data, 0.25, 0.8, true);
             #endif
           #endif
         }
@@ -36,7 +36,7 @@ void frx_startFragment(inout frx_FragmentData data)
         float s = max_ > 0 ? (max_ - min_) / max_ : 0;
         if (s < 0.25 || (c.g > c.b * 2 && max_ > 0.6)) {
           pbr_metallic = 1.0;
-          pbr_roughness = 0.6;
+          pbr_roughness = 0.4;
           #ifdef LUMIEXT_ApplyBumpDefault
             #ifdef LUMIEXT_ApplyToolBump
               _applyBump_step(data, 0.25, 0.5, false);

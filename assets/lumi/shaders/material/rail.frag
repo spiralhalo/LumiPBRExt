@@ -23,7 +23,7 @@ void frx_startFragment(inout frx_FragmentData data)
       float s = max_ > 0 ? (max_ - min_) / max_ : 0;
       if (s < 0.2 || (c.g > c.b * 2 && s > 0.6)) {
         pbr_metallic = 1.0;
-        pbr_roughness = 0.5;
+        pbr_roughness = 0.4;
         #ifdef LUMIEXT_ApplyBumpDefault
           _applyBump(data);
         #endif

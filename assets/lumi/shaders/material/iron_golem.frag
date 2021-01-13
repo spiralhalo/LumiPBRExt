@@ -17,10 +17,10 @@ void frx_startFragment(inout frx_FragmentData data)
         data.spriteColor.rgb /= max_;
         data.spriteColor.b *= 0.8;
         pbr_metallic = 1.0;
-        pbr_roughness = 0.5 - s * 0.2;
+        pbr_roughness = 0.4 - s * 0.2;
     }
     #ifdef LUMIEXT_ApplyBumpDefault
-      _applyBump(data);
+      _applyBump(data, true);
     #endif
   #endif
   if(data.spriteColor.r > data.spriteColor.g * 2) {
