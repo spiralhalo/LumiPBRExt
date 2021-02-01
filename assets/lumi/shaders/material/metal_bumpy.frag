@@ -34,7 +34,8 @@ void frx_startFragment(inout frx_FragmentData data)
   if (!is_liquid) {
     #ifdef LUMI_PBRX
       pbr_metallic = 1.0;
-      pbr_roughness = 0.2;
+      pbr_roughness = 0.8 - frx_luminance(data.spriteColor.rgb) * 0.7;
+      // pbr_roughness = mod(frx_var2.xyz + frx_modelOriginWorldPos(), 10.0).z / 10.0; // roughness test material
     #endif
     #ifdef LUMIEXT_ApplyBumpMinerals
       if (!data.diffuse) {
