@@ -3,6 +3,10 @@
     "respackopts.field.LUMIEXT.MaterialCoverage": "Material coverage",
     "respackopts.field.LUMIEXT.ApplyBumpMinerals": "Bumps on stone, bricks, metal, and gems",
     "respackopts.field.LUMIEXT.ApplyBumpDefault": "Bumps on wood, dirt, and everything else",
-    "respackopts.field.LUMIEXT.ApplyToolBump": "Bumps on tools"
+    "respackopts.field.LUMIEXT.ApplyToolBump": "Bumps on tools",
+    "respackopts.field.LUMIEXT.BaseMetalRoughness": "Base metal roughness",
+    "respackopts.field.LUMIEXT.WoodPlanksRoughness": "Wood planks roughness",
+    "respackopts.field.LUMIEXT.BaseStoneRoughness": "Base stone roughness",
+    "respackopts.field.LUMIEXT.SmoothStoneRoughness": "Smooth stone roughness",
+    "respackopts.field.LUMIEXT.PolishedStoneRoughness": "Polished stone roughness"
 }
-  

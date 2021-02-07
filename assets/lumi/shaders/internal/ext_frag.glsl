@@ -12,6 +12,12 @@
   lumi:shaders/internal/ext_frag.glsl
 ******************************************************/
 
+const float BASE_METAL_ROUGHNESS = LUMIEXT_BaseMetalRoughness * 0.1;
+const float WOOD_PLANKS_ROUGHNESS = LUMIEXT_WoodPlanksRoughness * 0.1;
+const float BASE_STONE_ROUGHNESS = LUMIEXT_BaseStoneRoughness * 0.1;
+const float SMOOTH_STONE_ROUGHNESS = LUMIEXT_SmoothStoneRoughness * 0.1;
+const float POLISHED_STONE_ROUGHNESS = LUMIEXT_PolishedStoneRoughness * 0.1;
+
 #ifdef LUMI_BUMP
 void _applyBump(inout frx_FragmentData data) 
 {

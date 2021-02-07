@@ -3,13 +3,13 @@
 #include lumi:shaders/internal/ext_frag.glsl
 
 /******************************************************
-  lumi:shaders/material/stone_bumpy.frag
+  lumi:shaders/material/stone_bumpy_smooth.frag
 ******************************************************/
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
 #ifdef LUMI_PBRX
-  pbr_roughness = 0.4;
+  pbr_roughness = SMOOTH_STONE_ROUGHNESS;
 #endif
 #ifdef LUMI_BUMP
 #ifdef LUMIEXT_ApplyBumpMinerals
