@@ -28,7 +28,7 @@ void _applyBump(inout frx_FragmentData data)
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
   data.vertexNormal =  bump_normal2(
-    frxs_spriteAltas, data.vertexNormal ,
+    frxs_baseColor, data.vertexNormal ,
     uvN, uvT, uvB, topRight, bump_tangent, false);
 }
 
@@ -39,7 +39,7 @@ void _applyBump(inout frx_FragmentData data, bool reverse)
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
   data.vertexNormal =  bump_normal2(
-    frxs_spriteAltas, data.vertexNormal ,
+    frxs_baseColor, data.vertexNormal ,
     uvN, uvT, uvB, topRight, bump_tangent, reverse);
 }
 
@@ -50,7 +50,7 @@ void _applyBump_alpha(inout frx_FragmentData data, bool reverse)
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
   data.vertexNormal =  bump_alpha_normal(
-    frxs_spriteAltas, data.vertexNormal ,
+    frxs_baseColor, data.vertexNormal ,
     uvN, uvT, uvB, topRight, bump_tangent, reverse);
 }
 
@@ -61,7 +61,7 @@ void _applyBump_step(inout frx_FragmentData data, float step_, float strength, b
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
   data.vertexNormal =  bump_step_normal(
-    frxs_spriteAltas, data.vertexNormal ,
+    frxs_baseColor, data.vertexNormal ,
     uvN, uvT, uvB, topRight, bump_tangent,
     step_, strength, reverse);
 }
@@ -73,7 +73,7 @@ void _applyBump_step_s(inout frx_FragmentData data, float step_, float strength,
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
   data.vertexNormal = bump_step_s_normal(
-    frxs_spriteAltas, data.vertexNormal,
+    frxs_baseColor, data.vertexNormal,
     uvN, uvT, uvB, topRight, bump_tangent,
     step_, strength, reverse);
 }
