@@ -30,7 +30,7 @@ void frx_startFragment(inout frx_FragmentData data)
         vec2 uvN = floor(frx_var1.zw * resolution)/resolution;
         vec2 uvT = uvN + vec2(0.5 / resolution, 0);
         vec2 uvB = uvN + vec2(0,0.5 / resolution);
-        data.vertexNormal = bump_coarse_normal(data.vertexNormal, uvN, uvT, uvB, bump_tangent, coarseness);
+        data.vertexNormal = bump_coarse_normal(data.vertexNormal, uvN, uvT, uvB, l2_tangent, coarseness);
         // data.spriteColor.rgb *= (data.vertexNormal + 1) * 0.5;
       }
     } else {

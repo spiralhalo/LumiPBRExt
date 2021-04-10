@@ -1,5 +1,5 @@
 #include frex:shaders/api/vertex.glsl
-#include lumi:shaders/internal/ext_varying.glsl
+#include lumi:shaders/internal/ext_vert.glsl
 
 /******************************************************
   lumi:shaders/material/default.vert
@@ -14,5 +14,5 @@ void frx_startVertex(inout frx_VertexData data) {
   frx_var3.xy = frx_mapNormalizedUV(vec2(1.0, 0.0) + vec2(-bump_resolution, bump_resolution));
   frx_var2.xyzw = data.vertex;
   frx_var1.zw = data.spriteUV;
-  set_bump_tangent(data.normal);
+  pbrExt_tangentSetup(data.normal);
 }
