@@ -1,7 +1,10 @@
 # Lumi PBR Ext
-Lumi PBR materials for vanilla stuff. Also defines materials to be used by other resource pack, such as [Lumi PBR Compat](https://github.com/spiralhalo/LumiPBRCompat).
 
-[Lumi Lights](https://github.com/spiralhalo/LumiLights) is a shader pack for [Canvas renderer](https://github.com/grondag/canvas) mod for Minecraft on the Fabric mod platform.
+![PBR Ext](https://raw.githubusercontent.com/spiralhalo/spiralhalo.github.io/main/img/pbrext.jpg)
+
+Materials for vanilla that adds roughness, metal, fresnel reflectivity (f0), and shader-generated microfacet normals using Lumi Lights' PBR Extension system.
+
+This pack is also required by [Lumi PBR Compat](https://github.com/spiralhalo/LumiPBRCompat). Third parties may reference materials from this pack but it isn't advised.
 
 **[DOWNLOAD THE LATEST RELEASE](https://github.com/spiralhalo/LumiPBRExt/releases)**
 
