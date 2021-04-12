@@ -1,8 +1,8 @@
 #include frex:shaders/api/vertex.glsl
-#include lumi:shaders/internal/ext_vert.glsl
+#include lumiext:shaders/internal/vert.glsl
 
 /******************************************************
-  lumi:shaders/material/default_entity.vert
+  lumiext:shaders/material/default_entity.vert
 ******************************************************/
 
 #define ONE_PIXEL 1.0/16.0

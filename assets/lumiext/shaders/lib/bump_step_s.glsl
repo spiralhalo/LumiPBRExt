@@ -1,5 +1,5 @@
 /********************************************************
- * lumi:shaders/lib/bump_step_s.glsl
+ * lumiext:shaders/lib/bump_step_s.glsl
  ********************************************************
  * An extension of Lumi Lights PBR bump map generation.
  * LICENSED under LGPL-3.0 and provided WITHOUT WARRANTY.

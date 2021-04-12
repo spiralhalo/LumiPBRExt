@@ -1,5 +1,5 @@
 {
     "disableDiffuse": true,
-    "vertexSource": "lumi:shaders/material/default.vert",
-    "fragmentSource": "lumi:shaders/material/smooth_bumpy.frag"
+    "vertexSource": "lumiext:shaders/material/default.vert",
+    "fragmentSource": "lumiext:shaders/material/smooth_bumpy.frag"
 }

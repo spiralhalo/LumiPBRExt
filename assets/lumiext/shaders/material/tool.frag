@@ -2,10 +2,10 @@
 #include frex:shaders/api/context.glsl
 #include frex:shaders/api/world.glsl
 #include frex:shaders/api/view.glsl
-#include lumi:shaders/internal/ext_frag.glsl
+#include lumiext:shaders/internal/frag.glsl
 
 /******************************************************
-  lumi:shaders/material/tool.frag
+  lumiext:shaders/material/tool.frag
 ******************************************************/
 
 void frx_startFragment(inout frx_FragmentData data) 

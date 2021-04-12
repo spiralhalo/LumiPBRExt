@@ -1,9 +1,9 @@
 #include frex:shaders/api/sampler.glsl
 #include frex:shaders/api/fragment.glsl
-#include lumi:shaders/internal/ext_frag.glsl
+#include lumiext:shaders/internal/frag.glsl
 
 /******************************************************
-  lumi:shaders/material/bumpy_side_z.frag
+  lumiext:shaders/material/bumpy_side_z.frag
 ******************************************************/
 
 void frx_startFragment(inout frx_FragmentData data) 

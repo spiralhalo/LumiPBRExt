@@ -1,7 +1,7 @@
 #include lumi:shaders/api/pbr_ext.glsl
 
 /***********************************************************
- *  lumi:shaders/internal/ext_vert.glsl                    *
+ *  lumiext:shaders/internal/vert.glsl                    *
  ***********************************************************/
 
 // Fallback

@@ -1,9 +1,9 @@
 #include frex:shaders/api/sampler.glsl
 #include frex:shaders/api/fragment.glsl
-#include lumi:shaders/internal/ext_frag.glsl
+#include lumiext:shaders/internal/frag.glsl
 
 /******************************************************
-  lumi:shaders/material/ore.frag
+  lumiext:shaders/material/ore.frag
 ******************************************************/
 
 void frx_startFragment(inout frx_FragmentData data) 

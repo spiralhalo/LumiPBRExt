@@ -1,9 +1,9 @@
 #include frex:shaders/api/fragment.glsl
 #include frex:shaders/api/world.glsl
-#include lumi:shaders/internal/ext_frag.glsl
+#include lumiext:shaders/internal/frag.glsl
 
 /******************************************************
-  lumi:shaders/material/iron_wood.frag
+  lumiext:shaders/material/iron_wood.frag
 ******************************************************/
 
 void frx_startFragment(inout frx_FragmentData data) 

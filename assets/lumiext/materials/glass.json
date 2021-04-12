@@ -1,5 +1,5 @@
 {
     "blendMode": "translucent",
-    "vertexSource": "lumi:shaders/material/default.vert",
-    "fragmentSource": "lumi:shaders/material/glass.frag"
+    "vertexSource": "lumiext:shaders/material/default.vert",
+    "fragmentSource": "lumiext:shaders/material/glass.frag"
 }

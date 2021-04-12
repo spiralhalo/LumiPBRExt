@@ -2,12 +2,12 @@
 #include frex:shaders/api/sampler.glsl
 #include frex:shaders/api/fragment.glsl
 #include frex:shaders/api/material.glsl
-#include lumi:ext_config.glsl
+#include lumiext:config.glsl
 #include lumi:shaders/api/pbr_ext.glsl
 
 // Fallback
 #if !defined(LUMI_PBR_API) || LUMI_PBR_API < 2
-    in vec3 l2_tangent;
+  in vec3 l2_tangent;
 #endif
 
 /* legacy bump height */
@@ -15,14 +15,14 @@
 
 #define _bump_height2(x) sqrt((x.r + x.g + x.b) * 0.33333 * 2.0)
 
-#include lumi:shaders/lib/bump2.glsl
-#include lumi:shaders/lib/bump_alpha.glsl
-#include lumi:shaders/lib/bump_step.glsl
-#include lumi:shaders/lib/bump_step_s.glsl
-#include lumi:shaders/lib/bump_coarse.glsl
+#include lumiext:shaders/lib/bump2.glsl
+#include lumiext:shaders/lib/bump_alpha.glsl
+#include lumiext:shaders/lib/bump_step.glsl
+#include lumiext:shaders/lib/bump_step_s.glsl
+#include lumiext:shaders/lib/bump_coarse.glsl
 
 /******************************************************
-  lumi:shaders/internal/ext_frag.glsl
+  lumiext:shaders/internal/frag.glsl
 ******************************************************/
 
 void _applyBump(inout frx_FragmentData data) 
