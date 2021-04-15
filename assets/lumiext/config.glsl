@@ -54,7 +54,7 @@
 /*******************************
  *  SYSTEM -DO NOT EDIT-       *
  *******************************/
- 
-const float ONE_PIXEL = 1. / clamp(float(LUMIEXT_TextureResolution), 0., 2048.);
 
 #endif
+
+const float ONE_PIXEL = 1. / clamp(float(LUMIEXT_TextureResolution), 0., 2048.);
