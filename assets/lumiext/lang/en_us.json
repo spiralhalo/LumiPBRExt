@@ -1,5 +1,6 @@
 {
     "respackopts.title.LUMIEXT": "Lumi PBR Ext",
+    "respackopts.field.LUMIEXT.TextureResolution": "Texture resolution",
     "respackopts.field.LUMIEXT.MaterialCoverage": "Material coverage",
     "respackopts.field.LUMIEXT.ApplyBumpMinerals": "Bumps on stone, bricks, metal, and gems",
     "respackopts.field.LUMIEXT.ApplyBumpDefault": "Bumps on wood, dirt, and everything else",

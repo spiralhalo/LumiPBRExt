@@ -33,7 +33,7 @@ void frx_startFragment(inout frx_FragmentData data)
       float min_ = min( min(c.r, c.g), c.b );
       float max_ = max( max(c.r, c.g), c.b );
       float s = max_ > 0 ? (max_ - min_) / max_ : 0;
-      if (s > 0.2 || min_ > 0.6) {
+      if (s > 0.3 || min_ > 0.65) {
         if (!data.diffuse) {
           pbr_roughness = 0.2;
           #if LUMI_PBR_API >= 1

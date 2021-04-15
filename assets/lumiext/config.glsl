@@ -18,7 +18,7 @@
 
 /* Texture resolution (default = 16)
  ***********************************/
-#define LUMIEXT_TextureResolution 16
+#define LUMIEXT_TextureResolution 64
 
 /* Material coverage
  * 0 = apply all materials

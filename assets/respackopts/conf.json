@@ -2,7 +2,7 @@
   "id": "LUMIEXT",
   "version": 1,
   "conf": {
-    "TextureResolution": 16,
+    "TextureResolution": 64,
     "MaterialCoverage": [
       "ApplyAll",
       "NonVanillaFriendly"
