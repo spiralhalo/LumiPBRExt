@@ -25,15 +25,21 @@
   lumiext:shaders/internal/frag.glsl
 ******************************************************/
 
+#if LUMI_PBR_API >= 3
+#define _applyMicroNormal(x, m) pbr_normalMicro = m
+#else
+#define _applyMicroNormal(x, m) x.vertexNormal = m
+#endif
+
 void _applyBump(inout frx_FragmentData data) 
 {
   vec2 topRight = frx_var3.xy;
   vec2 uvN = frx_var0.xy;
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
-  data.vertexNormal =  bump_normal2(
+  _applyMicroNormal(data, bump_normal2(
     frxs_baseColor, data.vertexNormal ,
-    uvN, uvT, uvB, topRight, l2_tangent, false);
+    uvN, uvT, uvB, topRight, l2_tangent, false));
 }
 
 void _applyBump(inout frx_FragmentData data, bool reverse) 
@@ -42,9 +48,9 @@ void _applyBump(inout frx_FragmentData data, bool reverse)
   vec2 uvN = frx_var0.xy;
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
-  data.vertexNormal =  bump_normal2(
+  _applyMicroNormal(data, bump_normal2(
     frxs_baseColor, data.vertexNormal ,
-    uvN, uvT, uvB, topRight, l2_tangent, reverse);
+    uvN, uvT, uvB, topRight, l2_tangent, reverse));
 }
 
 void _applyBump_alpha(inout frx_FragmentData data, bool reverse) 
@@ -53,9 +59,9 @@ void _applyBump_alpha(inout frx_FragmentData data, bool reverse)
   vec2 uvN = frx_var0.xy;
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
-  data.vertexNormal =  bump_alpha_normal(
+  _applyMicroNormal(data, bump_alpha_normal(
     frxs_baseColor, data.vertexNormal ,
-    uvN, uvT, uvB, topRight, l2_tangent, reverse);
+    uvN, uvT, uvB, topRight, l2_tangent, reverse));
 }
 
 void _applyBump_step(inout frx_FragmentData data, float step_, float strength, bool reverse) 
@@ -64,10 +70,10 @@ void _applyBump_step(inout frx_FragmentData data, float step_, float strength, b
   vec2 uvN = frx_var0.xy;
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
-  data.vertexNormal =  bump_step_normal(
+  _applyMicroNormal(data, bump_step_normal(
     frxs_baseColor, data.vertexNormal ,
     uvN, uvT, uvB, topRight, l2_tangent,
-    step_, strength, reverse);
+    step_, strength, reverse));
 }
 
 void _applyBump_step_s(inout frx_FragmentData data, float step_, float strength, bool reverse) 
@@ -76,8 +82,8 @@ void _applyBump_step_s(inout frx_FragmentData data, float step_, float strength,
   vec2 uvN = frx_var0.xy;
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
-  data.vertexNormal = bump_step_s_normal(
+  _applyMicroNormal(data, bump_step_s_normal(
     frxs_baseColor, data.vertexNormal,
     uvN, uvT, uvB, topRight, l2_tangent,
-    step_, strength, reverse);
+    step_, strength, reverse));
 }
