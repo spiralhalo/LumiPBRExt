@@ -16,6 +16,10 @@
  * vv CONFIGURATIONS START vv  *
  *******************************/
 
+/* Texture resolution (default = 16)
+ ***********************************/
+#define LUMIEXT_TextureResolution 16
+
 /* Material coverage
  * 0 = apply all materials
  * 1 = don't apply materials that are fine-tuned for vanilla (good for 3rd party resource pack)
@@ -50,5 +54,7 @@
 /*******************************
  *  SYSTEM -DO NOT EDIT-       *
  *******************************/
+ 
+const float ONE_PIXEL = 1. / clamp(float(LUMIEXT_TextureResolution), 0., 2048.);
 
 #endif
