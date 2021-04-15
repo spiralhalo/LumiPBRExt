@@ -1,0 +1,4 @@
+{
+    "vertexSource": "lumiext:shaders/material/default.vert",
+    "fragmentSource": "lumiext:shaders/material/bumpy_side_z.frag"
+}

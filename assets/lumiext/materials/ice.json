@@ -1,0 +1,5 @@
+{
+    "blendMode": "translucent",
+    "vertexSource": "lumiext:shaders/material/default.vert",
+    "fragmentSource": "lumiext:shaders/material/ice_coarse.frag"
+}

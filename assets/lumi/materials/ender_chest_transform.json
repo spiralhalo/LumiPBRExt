@@ -1,6 +1,0 @@
-{
-    "transform": true,
-    "disableDiffuse": true,
-    "vertexSource": "lumi:shaders/material/default_entity.vert",
-    "fragmentSource": "lumi:shaders/material/smooth_bumpy.frag"
-}

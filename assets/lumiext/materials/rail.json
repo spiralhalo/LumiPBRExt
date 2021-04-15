@@ -1,0 +1,5 @@
+{
+    "emissive": false,
+    "vertexSource": "lumiext:shaders/material/default.vert",
+    "fragmentSource": "lumiext:shaders/material/rail.frag"
+}

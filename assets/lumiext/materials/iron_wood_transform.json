@@ -1,0 +1,5 @@
+{
+    "transform": true,
+    "vertexSource": "lumiext:shaders/material/default_entity.vert",
+    "fragmentSource": "lumiext:shaders/material/iron_wood.frag"
+}

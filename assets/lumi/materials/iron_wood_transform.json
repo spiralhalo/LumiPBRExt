@@ -1,5 +1,0 @@
-{
-    "transform": true,
-    "vertexSource": "lumi:shaders/material/default_entity.vert",
-    "fragmentSource": "lumi:shaders/material/iron_wood.frag"
-}

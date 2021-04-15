@@ -6,7 +6,7 @@
                     "renderLayerName": "entity_cutout_no_cull"
                 }
             },
-            "material": "lumi:metal_bumpy_transform"
+            "material": "lumiext:metal_bumpy_transform"
         },
         {
             "predicate": {
@@ -14,7 +14,7 @@
                     "renderLayerName": "entity_cutout"
                 }
             },
-            "material": "lumi:iron_wood_transform"
+            "material": "lumiext:iron_wood_transform"
         }
     ]
 }

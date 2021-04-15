@@ -1,4 +1,0 @@
-{
-    "vertexSource": "lumi:shaders/material/default.vert",
-    "fragmentSource": "lumi:shaders/material/bumpy_side_x.frag"
-}

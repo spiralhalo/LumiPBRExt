@@ -1,0 +1,5 @@
+{
+    "emissive": true,
+    "vertexSource": "lumiext:shaders/material/default.vert",
+    "fragmentSource": "lumiext:shaders/material/metal_bumpy.frag"
+}

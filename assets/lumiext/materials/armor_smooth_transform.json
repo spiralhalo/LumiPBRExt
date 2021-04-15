@@ -1,0 +1,6 @@
+{
+    "transform": true,
+    "disableDiffuse": false,
+    "vertexSource": "lumiext:shaders/material/default_entity.vert",
+    "fragmentSource": "lumiext:shaders/material/gem_bumpy.frag"
+}
