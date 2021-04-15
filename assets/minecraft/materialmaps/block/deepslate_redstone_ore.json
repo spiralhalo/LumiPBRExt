@@ -1,8 +1,8 @@
 {
-    "defaultMaterial": "lumi:redstone_ore",
+    "defaultMaterial": "lumiext:redstone_ore",
     "variants": {
         "lit=false":{
-            "defaultMaterial": "lumi:stone_bumpy"
+            "defaultMaterial": "lumiext:stone_bumpy"
         }
     }
 }
