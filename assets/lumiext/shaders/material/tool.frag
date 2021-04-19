@@ -10,7 +10,6 @@
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
-  if (frx_isGui()) return;
   #if LUMIEXT_MaterialCoverage == LUMIEXT_MaterialCoverage_ApplyAll
     if (!data.diffuse) {
       #ifdef LUMI_PBRX
@@ -45,6 +44,6 @@ void frx_startFragment(inout frx_FragmentData data)
         }
       #endif
     }
-    data.diffuse = true;
+    data.diffuse = !frx_isGui();
   #endif
 }
