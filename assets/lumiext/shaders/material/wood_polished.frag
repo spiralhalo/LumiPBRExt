@@ -3,17 +3,13 @@
 #include lumiext:shaders/internal/frag.glsl
 
 /******************************************************
-  lumiext:shaders/material/smooth_bumpy.frag
+  lumiext:shaders/material/wood_polished.frag
 ******************************************************/
 
 void frx_startFragment(inout frx_FragmentData data) 
 {
   #ifdef LUMI_PBRX
-    if (!data.diffuse) {
-      pbr_roughness = POLISHED_ROUGHNESS;
-    } else {
-      pbr_roughness = BASE_STONE_ROUGHNESS;
-    }
+    pbr_roughness = WOOD_PLANKS_ROUGHNESS;
   #endif
 
   #ifdef LUMIEXT_ApplyBumpMinerals

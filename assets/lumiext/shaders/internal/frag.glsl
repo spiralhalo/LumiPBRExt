@@ -8,7 +8,11 @@
 // Fallback
 #if !defined(LUMI_PBR_API) || LUMI_PBR_API < 2
   in vec3 l2_tangent;
-#endif
+#endif 
+
+const float BASE_STONE_ROUGHNESS = clamp(LUMIEXT_BaseStoneRoughness * 0.1, 0.05, 1.0);
+const float POLISHED_ROUGHNESS = clamp(LUMIEXT_PolishedRoughness * 0.1, 0.05, 1.0);
+const float WOOD_PLANKS_ROUGHNESS = clamp(LUMIEXT_WoodPlanksRoughness * 0.1, 0.05, 1.0);
 
 /* legacy bump height */
 #define _bump_height(raw) frx_smootherstep(0, 1, pow(raw, 1 + raw * raw))

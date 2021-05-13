@@ -40,7 +40,12 @@
 /* Apply bumps to tools
  ***************************************************************/
 #define LUMIEXT_ApplyToolBump
-
+ 
+/* Material roughness values 
+ ****************************************************************************************/
+#define LUMIEXT_BaseStoneRoughness 7   // Base stone (1..10, default: 7)
+#define LUMIEXT_PolishedRoughness 4    // Smooth and polished stone (1..10, default: 4)
+#define LUMIEXT_WoodPlanksRoughness 5  // Wood planks (1..10, default: 5)
 
 
 /*******************************

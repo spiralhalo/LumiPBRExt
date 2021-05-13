@@ -9,6 +9,21 @@
     ],
     "ApplyBumpMinerals": true,
     "ApplyBumpDefault": true,
-    "ApplyToolBump": true
+    "ApplyToolBump": true,
+    "BaseStoneRoughness": {
+      "default": 7,
+      "min": 1,
+      "max": 10
+    },
+    "PolishedRoughness": {
+      "default": 4,
+      "min": 1,
+      "max": 10
+    },
+    "WoodPlanksRoughness": {
+      "default": 5,
+      "min": 1,
+      "max": 10
+    }
   }
 }
