@@ -9,8 +9,8 @@
     ],
     "ApplyBumpMinerals": true,
     "ApplyBumpLow": false,
-    "ApplyBumpDefault": true,
     "ApplyToolBump": true,
+    "ApplyBumpDefault": true,
     "BaseStoneRoughness": {
       "default": 7,
       "min": 1,
