@@ -16,14 +16,18 @@ void frx_startFragment(inout frx_FragmentData data)
     }
   #endif
 
+  data.diffuse = true;
+
   #ifdef LUMIEXT_ApplyBumpMinerals
+  if (frx_var3.z > 1.5) {
+    _applyBevel(data, frx_var1.zw, frx_var2.xyz);
+  } else if (frx_var3.z > 0.5) {
     _applyBump(data);
+  }
   #endif
 
   // Crying obsidian
   if (data.emissivity > 0) {
     data.emissivity = data.spriteColor.b - 0.4;
   }
-  
-  data.diffuse = true;
 }

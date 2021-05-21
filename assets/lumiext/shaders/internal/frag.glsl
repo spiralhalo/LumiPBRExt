@@ -91,3 +91,25 @@ void _applyBump_step_s(inout frx_FragmentData data, float step_, float strength,
     uvN, uvT, uvB, topRight, l2_tangent,
     step_, strength, reverse));
 }
+
+void _applyBevel(inout frx_FragmentData data, in vec2 spriteUV, in vec3 worldPos) 
+{
+  vec2 e1 = smoothstep(0.0725, 0.0525, spriteUV);
+  vec2 e2 = smoothstep(1.0-0.0725, 1.0-0.0525, spriteUV);
+  vec2 e = max(e1, e2);
+  float frameness = max(e.x, e.y);
+  if (frameness <= 0) {
+    return;
+  }
+  vec3 model = fract(worldPos - data.vertexNormal * 0.1);
+  vec3 center = vec3(0.5, 0.5, 0.5);
+  center -= data.vertexNormal * 1.;
+  vec3 a = (model - center);
+  vec3 b = abs(a);
+  float minVal = min(b.x, min(b.y, b.z));
+  b -= minVal;
+  b = pow(normalize(b), vec3(.15));
+  a = sign(a) * b;
+  a = mix(data.vertexNormal, normalize(a), frameness);
+  _applyMicroNormal(data, normalize(a + data.vertexNormal));
+}

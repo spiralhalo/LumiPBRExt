@@ -33,6 +33,10 @@
 #define LUMIEXT_ApplyBumpMinerals
 // #define LUMIEXT_ApplyBumpMinerals /* this is example of commented out variable. */
 
+/* Uncomment to apply bumps to frequently occuring blocks such as stone
+ *************************************************************************/
+// #define LUMIEXT_ApplyBumpLow
+
 /* Apply bumps to every other types of blocks
  ***************************************************************/
 #define LUMIEXT_ApplyBumpDefault

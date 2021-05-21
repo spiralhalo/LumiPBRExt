@@ -8,6 +8,7 @@
       "NonVanillaFriendly"
     ],
     "ApplyBumpMinerals": true,
+    "ApplyBumpLow": false,
     "ApplyBumpDefault": true,
     "ApplyToolBump": true,
     "BaseStoneRoughness": {

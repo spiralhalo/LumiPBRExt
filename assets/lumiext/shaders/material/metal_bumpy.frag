@@ -38,16 +38,9 @@ void frx_startFragment(inout frx_FragmentData data)
       // pbr_roughness = mod(frx_var2.xyz + frx_modelOriginWorldPos(), 10.0).z / 10.0; // roughness test material
     #endif
     #ifdef LUMIEXT_ApplyBumpMinerals
-      if (!data.diffuse) {
-        vec2 spriteUV = frx_var1.zw;
-        vec2 e1 = 1.0-step(0.0625, spriteUV);
-        vec2 e2 = step(1.0-0.0625, spriteUV);
-        vec2 e = max(e1, e2);
-        float frameness = max(e.x, e.y);
-        if (frameness > 0) {
-          _applyBump(data);
-        }
-      } else {
+      if (frx_var3.z > 1.5 || !data.diffuse) { // the diffuse part is for legacy metal_frame
+        _applyBevel(data, frx_var1.zw, frx_var2.xyz);
+      } else if (frx_var3.z > 0.5) {
         _applyBump(data);
       }
     #endif

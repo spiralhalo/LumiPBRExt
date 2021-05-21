@@ -9,6 +9,8 @@
 void frx_startFragment(inout frx_FragmentData data) 
 {
   #ifdef LUMIEXT_ApplyBumpDefault
-    _applyBump(data);
+    if (frx_var3.z > 0.5) {
+      _applyBump(data);
+    }
   #endif
 }
