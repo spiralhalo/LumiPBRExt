@@ -5,8 +5,7 @@
     "respackopts.field.LUMIEXT.ApplyBumpMinerals": "Bumps on rocks, metal, and gems",
     "respackopts.field.LUMIEXT.ApplyBumpDefault": "Bumps on other material types",
     "respackopts.field.LUMIEXT.ApplyToolBump": "Bumps on tools",
-    "respackopts.field.LUMIEXT.BaseStoneRoughness": "Raw rocks roughness",
-    "respackopts.field.LUMIEXT.PolishedRoughness": "Polished and smooth rocks roughness",
-    "respackopts.field.LUMIEXT.WoodPlanksRoughness": "Wood planks roughness"
+    "respackopts.field.LUMIEXT.BaseStoneRoughness": "Roughness of natural rocks",
+    "respackopts.field.LUMIEXT.PolishedRoughness": "Roughness of polished & smooth rocks",
+    "respackopts.field.LUMIEXT.WoodPlanksRoughness": "Roughness of wood planks"
 }
-
