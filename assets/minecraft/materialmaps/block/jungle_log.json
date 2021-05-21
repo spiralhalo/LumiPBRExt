@@ -1,0 +1,11 @@
+{
+    "defaultMap": {
+        "defaultMaterial": "fabric:standard",
+        "spriteMap": [
+            {
+                "sprite": "minecraft:block/jungle_log",
+                "material": "lumiext:default_bumpy"
+            }
+        ]
+    }
+}

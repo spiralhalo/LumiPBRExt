@@ -1,0 +1,11 @@
+{
+    "defaultMap": {
+        "defaultMaterial": "fabric:standard",
+        "spriteMap": [
+            {
+                "sprite": "minecraft:block/oak_log",
+                "material": "lumiext:default_bumpy"
+            }
+        ]
+    }
+}
