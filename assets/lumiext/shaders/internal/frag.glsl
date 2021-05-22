@@ -102,10 +102,10 @@ void _applyBevel(inout frx_FragmentData data, bool isBrick)
   vec2 e = max(e1, e2);
   float mask = max(e.s, e.t);
   if (isBrick) {
-    float bottom = smoothstep(0.5+0.0525, 0.5+0.0725, spriteUV.t);
+    float bottom = step(0.5-0.0525, spriteUV.t);
     vec2 m = smoothstep(0.0725, 0.0525, abs(spriteUV - vec2(0.5)));
     m.s *= bottom;
-    mask = max(mask * (1.0 - bottom), max(m.s, m.t));
+    mask = max(mask * max(1.0 - bottom, e2.t), max(m.s, m.t));
   }
   if (mask <= 0) {
     return;
@@ -113,7 +113,21 @@ void _applyBevel(inout frx_FragmentData data, bool isBrick)
   vec3 model = fract(regionPos - data.vertexNormal * 0.1);
   vec3 center = vec3(0.5, 0.5, 0.5);
   if (isBrick) {
-    center = vec3(0.25) + vec3(0.5) * floor(model * 2.0);
+    // 0.0725 < magic number < 0.5 - 0.0725. 0.15 gives smoothest result
+    #define _BRICK_FALLBACK_MAGICN 0.15
+    
+    bool fallback = spriteUV.t < 0.5 && abs(spriteUV.s - 0.5) < _BRICK_FALLBACK_MAGICN; 
+    fallback = fallback || spriteUV.t > 0.5 && abs(spriteUV.s - 0.5) > 0.5 - _BRICK_FALLBACK_MAGICN;
+    if (fallback) {
+      vec3 bitangent = cross(data.vertexNormal, l2_tangent);
+      center += spriteUV.t < 0.5 ? vec3(0.0) : l2_tangent * (-0.5 + floor(spriteUV.s * 2.0));
+      center -= bitangent * (-0.25 + 0.5 * floor(spriteUV.t * 2.0));
+      model -= center;
+      center = vec3(0.);
+      model *= 1.0 - abs(l2_tangent) * 0.5;
+    } else {
+      center = vec3(0.25) + vec3(0.5) * floor(model * 2.0);
+    }
   }
   center -= data.vertexNormal * 1.;
   vec3 a = (model - center);
