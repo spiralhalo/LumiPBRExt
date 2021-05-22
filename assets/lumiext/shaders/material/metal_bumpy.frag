@@ -39,7 +39,7 @@ void frx_startFragment(inout frx_FragmentData data)
     #endif
     #ifdef LUMIEXT_ApplyBumpMinerals
       if (frx_var3.z > 1.5 || !data.diffuse) { // the diffuse part is for legacy metal_frame
-        _applyBevel(data, frx_var1.zw, frx_var2.xyz, false);
+        _applyBevel(data, false);
       } else if (frx_var3.z > 0.5) {
         _applyBump(data);
       }

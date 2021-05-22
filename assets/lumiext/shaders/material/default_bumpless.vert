@@ -7,9 +7,8 @@
 
 void frx_startVertex(inout frx_VertexData data) {
   float bump_resolution = ONE_PIXEL;
-// Reserved
-//   frx_var0.Xy;
-//   frx_var0.zw
+// Unused
+//   frx_var0.xyzw
 //   frx_var1.xy
 //   frx_var3.xy
   frx_var3.z = 0.;

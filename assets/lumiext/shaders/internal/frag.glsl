@@ -92,13 +92,15 @@ void _applyBump_step_s(inout frx_FragmentData data, float step_, float strength,
     step_, strength, reverse));
 }
 
-void _applyBevel(inout frx_FragmentData data, in vec2 spriteUV, in vec3 worldPos, bool isBrick) 
+void _applyBevel(inout frx_FragmentData data, bool isBrick) 
 {
+  vec2 spriteUV = frx_var1.zw;
+  vec3 regionPos = frx_var2.xyz; //nb: unlike world pos, region pos is always positive
+
   vec2 e1 = smoothstep(0.0725, 0.0525, spriteUV);
   vec2 e2 = smoothstep(1.0-0.0725, 1.0-0.0525, spriteUV);
   vec2 e = max(e1, e2);
-  float maskE = max(e.s, e.t);
-  float mask = maskE;
+  float mask = max(e.s, e.t);
   if (isBrick) {
     float bottom = smoothstep(0.5+0.0525, 0.5+0.0725, spriteUV.t);
     vec2 m = smoothstep(0.0725, 0.0525, abs(spriteUV - vec2(0.5)));
@@ -108,7 +110,7 @@ void _applyBevel(inout frx_FragmentData data, in vec2 spriteUV, in vec3 worldPos
   if (mask <= 0) {
     return;
   }
-  vec3 model = fract(worldPos - data.vertexNormal * 0.1);
+  vec3 model = fract(regionPos - data.vertexNormal * 0.1);
   vec3 center = vec3(0.5, 0.5, 0.5);
   if (isBrick) {
     center = vec3(0.25) + vec3(0.5) * floor(model * 2.0);

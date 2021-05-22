@@ -20,7 +20,7 @@ void frx_startFragment(inout frx_FragmentData data)
 
   #ifdef LUMIEXT_ApplyBumpMinerals
   if (frx_var3.z > 1.5) {
-    _applyBevel(data, frx_var1.zw, frx_var2.xyz, !data.ao);
+    _applyBevel(data, !data.ao);
   } else if (frx_var3.z > 0.5) {
     _applyBump(data);
   }
