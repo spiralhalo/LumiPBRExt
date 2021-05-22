@@ -92,17 +92,27 @@ void _applyBump_step_s(inout frx_FragmentData data, float step_, float strength,
     step_, strength, reverse));
 }
 
-void _applyBevel(inout frx_FragmentData data, in vec2 spriteUV, in vec3 worldPos) 
+void _applyBevel(inout frx_FragmentData data, in vec2 spriteUV, in vec3 worldPos, bool isBrick) 
 {
   vec2 e1 = smoothstep(0.0725, 0.0525, spriteUV);
   vec2 e2 = smoothstep(1.0-0.0725, 1.0-0.0525, spriteUV);
   vec2 e = max(e1, e2);
-  float frameness = max(e.x, e.y);
-  if (frameness <= 0) {
+  float maskE = max(e.s, e.t);
+  float mask = maskE;
+  if (isBrick) {
+    float bottom = smoothstep(0.5+0.0525, 0.5+0.0725, spriteUV.t);
+    vec2 m = smoothstep(0.0725, 0.0525, abs(spriteUV - vec2(0.5)));
+    m.s *= bottom;
+    mask = max(mask * (1.0 - bottom), max(m.s, m.t));
+  }
+  if (mask <= 0) {
     return;
   }
   vec3 model = fract(worldPos - data.vertexNormal * 0.1);
   vec3 center = vec3(0.5, 0.5, 0.5);
+  if (isBrick) {
+    center = vec3(0.25) + vec3(0.5) * floor(model * 2.0);
+  }
   center -= data.vertexNormal * 1.;
   vec3 a = (model - center);
   vec3 b = abs(a);
@@ -110,6 +120,6 @@ void _applyBevel(inout frx_FragmentData data, in vec2 spriteUV, in vec3 worldPos
   b -= minVal;
   b = pow(normalize(b), vec3(.15));
   a = sign(a) * b;
-  a = mix(data.vertexNormal, normalize(a), frameness);
+  a = mix(data.vertexNormal, normalize(a), mask);
   _applyMicroNormal(data, normalize(a + data.vertexNormal));
 }
