@@ -7,10 +7,14 @@
 
 void frx_startVertex(inout frx_VertexData data) {
   float bump_resolution = ONE_PIXEL;
-// Unused
-//   frx_var0.xyzw
-//   frx_var1.xy
-//   frx_var3.xy
+
+#if LUMIEXT_BricksBevelMode == LUMIEXT_BricksBevelMode_TextureBump || LUMIEXT_BevelMode == LUMIEXT_BevelMode_TextureBump
+  frx_var0.xy = frx_mapNormalizedUV(data.spriteUV);
+  frx_var0.zw = frx_mapNormalizedUV(data.spriteUV + vec2(bump_resolution, 0.0));
+  frx_var1.xy = frx_mapNormalizedUV(data.spriteUV + vec2(0.0, -bump_resolution));
+  frx_var3.xy = frx_mapNormalizedUV(vec2(1.0, 0.0) + vec2(-bump_resolution, bump_resolution));
+#endif
+
   frx_var3.z = 2.;
   frx_var2.xyzw = data.vertex;
   frx_var1.zw = data.spriteUV;

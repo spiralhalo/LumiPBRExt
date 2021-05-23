@@ -3,6 +3,8 @@
     "respackopts.field.LUMIEXT.TextureResolution": "Texture resolution",
     "respackopts.field.LUMIEXT.MaterialCoverage": "Material coverage",
     "respackopts.field.LUMIEXT.ApplyBumpMinerals": "Bumps on rocks, metal, and gems",
+    "respackopts.field.LUMIEXT.BricksBevelMode": "Bumps on *stone bricks",
+    "respackopts.field.LUMIEXT.BevelMode": "Bumps on tile blocks",
     "respackopts.field.LUMIEXT.ApplyBumpLow": "Bumps on frequently occuring block",
     "respackopts.tooltip.LUMIEXT.ApplyBumpLow": "Bumps on frequently occuring block. Disable for performance.",
     "respackopts.field.LUMIEXT.ApplyToolBump": "Bumps on tools",

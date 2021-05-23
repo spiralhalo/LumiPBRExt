@@ -8,6 +8,16 @@
       "NonVanillaFriendly"
     ],
     "ApplyBumpMinerals": true,
+    "BricksBevelMode": [
+      "Beveled",
+      "TextureBump",
+      "Off"
+    ],
+    "BevelMode": [
+      "Beveled",
+      "TextureBump",
+      "Off"
+    ],
     "ApplyBumpLow": false,
     "ApplyToolBump": true,
     "ApplyBumpDefault": true,

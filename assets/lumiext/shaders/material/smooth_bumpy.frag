@@ -18,15 +18,38 @@ void frx_startFragment(inout frx_FragmentData data)
 
   data.diffuse = true;
 
+  bool isBrick = !data.ao;
+  data.ao = true;
+
+  bool beveled = frx_var3.z > 1.5;
+
+  #if LUMIEXT_BricksBevelMode != LUMIEXT_BricksBevelMode_Beveled
+    beveled = beveled && !isBrick;
+  #endif
+
+  #if LUMIEXT_BevelMode != LUMIEXT_BevelMode_Beveled
+    beveled = beveled && isBrick;
+  #endif
+
+  bool bump_fallback = false;
+
+  #if LUMIEXT_BricksBevelMode == LUMIEXT_BricksBevelMode_TextureBump
+    bump_fallback = bump_fallback || isBrick;
+  #endif
+
+  #if LUMIEXT_BevelMode == LUMIEXT_BevelMode_TextureBump
+    bump_fallback = bump_fallback || !isBrick;
+  #endif
+
+  bump_fallback = bump_fallback && frx_var3.z > 1.5;
+
   #ifdef LUMIEXT_ApplyBumpMinerals
-  if (frx_var3.z > 1.5) {
-    _applyBevel(data, !data.ao);
-  } else if (frx_var3.z > 0.5) {
+  if (beveled) {
+    _applyBevel(data, isBrick);
+  } else if ((frx_var3.z > 0.5 && frx_var3.z < 1.5) || bump_fallback) {
     _applyBump(data);
   }
   #endif
-
-  data.ao = true;
 
   // Crying obsidian
   if (data.emissivity > 0) {

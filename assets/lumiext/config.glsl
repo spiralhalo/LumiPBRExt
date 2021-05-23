@@ -3,7 +3,7 @@
  *******************************/
 
 /*******************************
- *  SYSTEM -DO NOT EDIT-       *
+ *  SYSTEM -SKIP THIS SECTION- *
  *******************************/
 
 #include respackopts:config_supplier
@@ -11,6 +11,16 @@
 
 #define LUMIEXT_MaterialCoverage_ApplyAll 0
 #define LUMIEXT_MaterialCoverage_NonVanillaFriendly 1
+
+#define LUMIEXT_BricksBevelMode_Beveled 0
+#define LUMIEXT_BricksBevelMode_TextureBump 1
+#define LUMIEXT_BricksBevelMode_Off 2
+
+#define LUMIEXT_BevelMode_Beveled 0
+#define LUMIEXT_BevelMode_TextureBump 1
+#define LUMIEXT_BevelMode_Off 2
+
+
 
 /*******************************
  * vv CONFIGURATIONS START vv  *
@@ -32,6 +42,17 @@
  ***************************************************************/
 #define LUMIEXT_ApplyBumpMinerals
 // #define LUMIEXT_ApplyBumpMinerals /* this is example of commented out variable. */
+
+/* Bump mode for *stone Bricks (default = 0)
+ * 0 = beveled bumps
+ * 1 = texture-based bumps
+ * 2 = off
+ **********************************************/
+#define LUMIEXT_BricksBevelMode 0
+
+/* Bump mode for tile blocks. Same as above (default = 0)
+ **********************************************/
+#define LUMIEXT_BevelMode 0
 
 /* Uncomment to apply bumps to frequently occuring blocks such as stone
  *************************************************************************/
@@ -56,13 +77,18 @@
  * ^^ CONFIGURATIONS END ^^    *
  *******************************/
 
-/* UNUSED VARIABLES (for now) */
-// #define LUMIEXT_ApplyArmorBump
-// #define LUMIEXT_ApplyEntityBump
+
+
+
+
 
 /*******************************
  *  SYSTEM -DO NOT EDIT-       *
  *******************************/
+
+/* UNUSED VARIABLES (for now) */
+// #define LUMIEXT_ApplyArmorBump
+// #define LUMIEXT_ApplyEntityBump
 
 #endif
 
