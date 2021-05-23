@@ -2,6 +2,7 @@
 #include frex:shaders/api/sampler.glsl
 #include frex:shaders/api/fragment.glsl
 #include frex:shaders/api/material.glsl
+#include frex:shaders/api/view.glsl
 #include lumiext:config.glsl
 #include lumi:shaders/api/pbr_ext.glsl
 
@@ -93,6 +94,10 @@ void _applyBump_step_s(inout frx_FragmentData data, float step_, float strength,
 
 void _applyBevel(inout frx_FragmentData data, bool isBrick) 
 {
+  // Hand workaround. TODO: implement hand bump properly
+  if (frx_modelOriginType() == MODEL_ORIGIN_SCREEN) {
+    return;
+  }
   vec2 spriteUV = frx_var1.zw;
   vec3 regionPos = frx_var2.xyz;
   _applyMicroNormal(data, bump_bevel_normal(data.vertexNormal, spriteUV, regionPos, isBrick));
