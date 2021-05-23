@@ -94,8 +94,8 @@ void _applyBump_step_s(inout frx_FragmentData data, float step_, float strength,
 
 void _applyBevel(inout frx_FragmentData data, bool isBrick) 
 {
-  // Hand workaround. TODO: implement hand bump properly
-  if (frx_modelOriginType() == MODEL_ORIGIN_SCREEN) {
+  // For now only works with terrain explicitly
+  if (frx_modelOriginType() != MODEL_ORIGIN_REGION) {
     return;
   }
   vec2 spriteUV = frx_var1.zw;
