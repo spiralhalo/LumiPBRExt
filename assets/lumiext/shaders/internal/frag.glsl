@@ -3,7 +3,7 @@
 #include frex:shaders/api/fragment.glsl
 #include frex:shaders/api/material.glsl
 #include frex:shaders/api/view.glsl
-#include lumiext:config.glsl
+#include lumiext:shaders/internal/config.glsl
 #include lumi:shaders/api/pbr_ext.glsl
 
 // Fallback
