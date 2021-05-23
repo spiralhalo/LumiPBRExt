@@ -1,11 +1,12 @@
 /********************************************************
  * lumiext:shaders/lib/bump2.glsl
  ********************************************************
- * An extension of Lumi Lights PBR bump map generation.
+ * Lumi PBR Ext Texture Bump Library by spiralhalo
+ * Generates bumps based on texture brigthness.
  * LICENSED under LGPL-3.0 and provided WITHOUT WARRANTY.
  ********************************************************/
 
-#define max_delta 0.2
+#define _bump_height2(x) sqrt((x.r + x.g + x.b) * 0.33333 * 2.0)
 vec3 bump_normal2(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, vec2 topRight, vec3 l2_tangent, bool reverse)
 {
     vec3 tangentMove = l2_tangent * (reverse ? -1.0 : 1.0);
