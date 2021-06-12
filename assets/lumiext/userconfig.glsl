@@ -15,4 +15,4 @@
 #define LUMIEXT_ApplyBumpDefaultB   1      // Bump map for other materials        // 0: Disable, 1: Enable                // 1
 #define LUMIEXT_BaseStoneRoughness  7      // Roughness of natural rocks          // 1~10                                 // 7
 #define LUMIEXT_PolishedRoughness   3      // Roughness of polished rocks         // 1~10                                 // 3
-#define LUMIEXT_WoodPlanksRoughness 5      // Roughness of wood planks            // 1~10                                 // 5
+#define LUMIEXT_WoodPlanksRoughness 6      // Roughness of wood planks            // 1~10                                 // 5
