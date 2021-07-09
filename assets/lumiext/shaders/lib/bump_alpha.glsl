@@ -14,9 +14,9 @@ vec3 bump_alpha_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb,
     if (uvn.x > topRight.x) { uvt = uvn; }
     if (uvn.y < topRight.y) { uvb = uvn; }
 
-    vec3 origin = _bump_height(texture2D(tex, uvn, frx_matUnmippedFactor() * -4.0).a) * normal;
-    vec3 tangent = tangentMove + _bump_height(texture2D(tex, uvt, frx_matUnmippedFactor() * -4.0).a) * normal - origin;
-    vec3 bitangent = bitangentMove + _bump_height(texture2D(tex, uvb, frx_matUnmippedFactor() * -4.0).a) * normal - origin;
+    vec3 origin = _bump_height(lumiext_textureCompat(tex, uvn, frx_matUnmippedFactor() * -4.0).a) * normal;
+    vec3 tangent = tangentMove + _bump_height(lumiext_textureCompat(tex, uvt, frx_matUnmippedFactor() * -4.0).a) * normal - origin;
+    vec3 bitangent = bitangentMove + _bump_height(lumiext_textureCompat(tex, uvb, frx_matUnmippedFactor() * -4.0).a) * normal - origin;
 
     return normalize(cross(tangent, bitangent));
     return vec3(0.0);

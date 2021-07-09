@@ -15,13 +15,13 @@ vec3 bump_normal2(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, vec2
     if (uvn.x > topRight.x) { uvt = uvn; }
     if (uvn.y < topRight.y) { uvb = uvn; }
 
-    vec3 texel = texture2D(tex, uvn, frx_matUnmippedFactor() * -4.0).rgb;
+    vec3 texel = lumiext_textureCompat(tex, uvn, frx_matUnmippedFactor() * -4.0).rgb;
     float hn = _bump_height2(texel);
     vec3 origin = hn * normal;
-    texel = texture2D(tex, uvt, frx_matUnmippedFactor() * -4.0).rgb;
+    texel = lumiext_textureCompat(tex, uvt, frx_matUnmippedFactor() * -4.0).rgb;
     float ht = _bump_height2(texel);
     vec3 tangent = tangentMove + ht * normal - origin;
-    texel = texture2D(tex, uvb, frx_matUnmippedFactor() * -4.0).rgb;
+    texel = lumiext_textureCompat(tex, uvb, frx_matUnmippedFactor() * -4.0).rgb;
     float hb = _bump_height2(texel);
     vec3 bitangent = bitangentMove + hb * normal - origin;
 

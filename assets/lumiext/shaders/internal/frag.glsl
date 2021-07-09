@@ -18,6 +18,13 @@ const float WOOD_PLANKS_ROUGHNESS = clamp(LUMIEXT_WoodPlanksRoughness * 0.1, 0.0
 /* legacy bump height */
 #define _bump_height(raw) frx_smootherstep(0, 1, pow(raw, 1 + raw * raw))
 
+// GLSL 2.1 (Mac on 1.16) compat
+#if __VERSION__ <= 120
+#define lumiext_textureCompat texture2D
+#else
+#define lumiext_textureCompat texture
+#endif
+
 #include lumiext:shaders/lib/bump2.glsl
 #include lumiext:shaders/lib/bump_alpha.glsl
 #include lumiext:shaders/lib/bump_bevel.glsl
