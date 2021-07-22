@@ -22,12 +22,15 @@ void frx_startFragment(inout frx_FragmentData data)
       data.spriteColor.rgb *= data.spriteColor.rgb * data.spriteColor.rgb * 2.0;
       is_liquid = true;
       // data.spriteColor.a = min(0.8, data.spriteColor.a);
+    } else if (data.spriteColor.r * 0.8 > data.spriteColor.b) {
+      // probably lava ??
+      data.emissivity = 1.0;
+      is_liquid = true;
+    } else if (data.spriteColor.r * data.spriteColor.b > 0.5) {
+      // probably snow ??
+      is_liquid = true;
     } else {
-      // probably lava cauldron ??
-      if (data.spriteColor.r * 0.8 > data.spriteColor.b) {
-        data.emissivity = 1.0;
-        is_liquid = true;
-      } 
+      data.spriteColor *= 1.5;
     }
   }
 
