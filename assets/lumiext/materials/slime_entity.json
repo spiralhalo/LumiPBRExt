@@ -1,0 +1,6 @@
+{
+    "blendMode": "translucent",
+    "transform" : true,
+    "vertexSource": "lumiext:shaders/material/default.vert",
+    "fragmentSource": "lumiext:shaders/material/slime_entity.frag"
+}
