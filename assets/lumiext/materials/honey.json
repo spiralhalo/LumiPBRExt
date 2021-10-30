@@ -1,0 +1,4 @@
+{
+    "disableDiffuse": false,
+    "fragmentSource": "lumiext:shaders/material/honey.frag"
+}
