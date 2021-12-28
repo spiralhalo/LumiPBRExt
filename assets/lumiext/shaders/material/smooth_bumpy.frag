@@ -52,7 +52,7 @@ void frx_materialFragment()
   #endif
 
   // Crying obsidian
-  if (!frx_fragEnableAo) {
-    frx_fragEmissive = frx_sampleColor.b - 0.4;
+  if (!frx_fragEnableAo && !frx_isGui) {
+    frx_fragEmissive = step(0.0, frx_sampleColor.b * frx_sampleColor.b - 0.22);
   }
 }
