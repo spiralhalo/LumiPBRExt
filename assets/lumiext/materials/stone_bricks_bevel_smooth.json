@@ -1,6 +1,6 @@
 {
     "disableDiffuse": true,
-    "disableAo": true,
+    "emissive": true,
     "vertexSource": "lumiext:shaders/material/default_bevel.vert",
     "fragmentSource": "lumiext:shaders/material/smooth_bumpy.frag"
 }

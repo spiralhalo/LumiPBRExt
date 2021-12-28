@@ -6,13 +6,13 @@
   lumiext:shaders/material/ore.frag
 ******************************************************/
 
-void frx_startFragment(inout frx_FragmentData data) 
+void frx_materialFragment()
 {
   // Redstone
-  if (data.emissivity > 0) {
+  if (frx_fragEmissive > 0) {
     #if LUMIEXT_MaterialCoverage == LUMIEXT_MaterialCoverage_ApplyAll
-      if(data.spriteColor.r < data.spriteColor.b * 2){
-        data.emissivity = 0.0;
+      if (frx_sampleColor.r < frx_sampleColor.b * 2){
+        frx_fragEmissive = 0.0;
       }
     #endif
 
@@ -21,7 +21,7 @@ void frx_startFragment(inout frx_FragmentData data)
     #endif
 
     #ifdef LUMIEXT_ApplyBumpMinerals
-      _applyBump(data);
+      _applyBump();
     #endif
   
   } else {
@@ -29,12 +29,12 @@ void frx_startFragment(inout frx_FragmentData data)
     #if LUMIEXT_MaterialCoverage == LUMIEXT_MaterialCoverage_ApplyAll
     #ifdef LUMI_PBRX
       pbr_roughness = 0.7;
-      vec3 c = data.spriteColor.rgb;
+      vec3 c = frx_sampleColor.rgb;
       float min_ = min( min(c.r, c.g), c.b );
       float max_ = max( max(c.r, c.g), c.b );
       float s = max_ > 0 ? (max_ - min_) / max_ : 0;
       if (s > 0.3 || min_ > 0.65) {
-        if (!data.diffuse) {
+        if (!frx_fragEnableDiffuse) {
           pbr_roughness = 0.2;
           #if LUMI_PBR_API >= 1
             pbr_f0 = 0.17;
@@ -48,10 +48,10 @@ void frx_startFragment(inout frx_FragmentData data)
     #endif
 
     #ifdef LUMIEXT_ApplyBumpMinerals
-      _applyBump(data);
-      // data.spriteColor.rgb *= (data.vertexNormal + 1) * 0.5;
+      _applyBump();
+      // frx_fragColor.rgb *= (frx_vertexNormal + 1) * 0.5;
     #endif
   }
 
-  data.diffuse = true;
+  frx_fragEnableDiffuse = true;
 }

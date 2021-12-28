@@ -6,20 +6,20 @@
   lumiext:shaders/material/smooth_bumpy.frag
 ******************************************************/
 
-void frx_startFragment(inout frx_FragmentData data) 
+void frx_materialFragment()
 {
   #ifdef LUMI_PBRX
-    if (!data.diffuse) {
+    if (!frx_fragEnableDiffuse) {
       pbr_roughness = POLISHED_ROUGHNESS;
     } else {
       pbr_roughness = BASE_STONE_ROUGHNESS;
     }
   #endif
 
-  data.diffuse = true;
+  frx_fragEnableDiffuse = true;
 
-  bool isBrick = !data.ao;
-  data.ao = true;
+  bool isBrick = frx_fragEmissive > 0.5;
+  frx_fragEmissive = 0.0;
 
   bool beveled = frx_var3.z > 1.5;
 
@@ -45,14 +45,14 @@ void frx_startFragment(inout frx_FragmentData data)
 
   #ifdef LUMIEXT_ApplyBumpMinerals
   if (beveled) {
-    _applyBevel(data, isBrick);
+    _applyBevel(isBrick);
   } else if ((frx_var3.z > 0.5 && frx_var3.z < 1.5) || bump_fallback) {
-    _applyBump(data);
+    _applyBump();
   }
   #endif
 
   // Crying obsidian
-  if (data.emissivity > 0) {
-    data.emissivity = data.spriteColor.b - 0.4;
+  if (!frx_fragEnableAo) {
+    frx_fragEmissive = frx_sampleColor.b - 0.4;
   }
 }

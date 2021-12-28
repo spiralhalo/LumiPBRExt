@@ -6,15 +6,15 @@
   lumiext:shaders/material/rail.frag
 ******************************************************/
 
-void frx_startFragment(inout frx_FragmentData data) 
+void frx_materialFragment()
 {
   #if LUMIEXT_MaterialCoverage == LUMIEXT_MaterialCoverage_ApplyAll
-    vec4 c = data.spriteColor;
-    if (data.emissivity > 0) {
+    vec4 c = frx_sampleColor;
+    if (frx_fragEmissive > 0) {
       if (c.r > c.g * 2) {
-        data.emissivity = 1.0;
+        frx_fragEmissive = 1.0;
       } else {
-        data.emissivity = 0;
+        frx_fragEmissive = 0;
       }
     }
     #ifdef LUMI_PBRX
@@ -25,11 +25,11 @@ void frx_startFragment(inout frx_FragmentData data)
         pbr_metallic = 1.0;
         pbr_roughness = 0.4;
         #ifdef LUMIEXT_ApplyBumpDefault
-          _applyBump(data);
+          _applyBump();
         #endif
       }
     #endif
   // #else
-  //   data.emissivity = 0.0;
+  //   frx_fragEmissive = 0.0;
   #endif
 }

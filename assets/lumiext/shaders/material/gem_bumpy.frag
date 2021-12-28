@@ -6,7 +6,7 @@
   lumiext:shaders/material/gem_bumpy.frag
 ******************************************************/
 
-void frx_startFragment(inout frx_FragmentData data) 
+void frx_materialFragment()
 {
   #ifdef LUMI_PBRX
     pbr_roughness = 0.1;
@@ -16,17 +16,17 @@ void frx_startFragment(inout frx_FragmentData data)
   #endif
   
   #ifdef LUMIEXT_ApplyBumpMinerals
-    if (!data.diffuse) {
+    if (!frx_fragEnableDiffuse) {
       float resRCP = ONE_PIXEL * 8.0;
       float coarseness = 0.4;
       vec2 uvN = floor((frx_var1.wz + frx_var1.zw * vec2(1.0, -1.0)) / resRCP) * resRCP;
       vec2 uvT = uvN + vec2(0.5 * resRCP, 0.);
       vec2 uvB = uvN + vec2(0., 0.5 * resRCP);
-      _applyMicroNormal(data, bump_coarse_normal(data.vertexNormal, uvN, uvT, uvB, l2_tangent, coarseness));
+      _applyMicroNormal(bump_coarse_normal(frx_vertexNormal, uvN, uvT, uvB, l2_tangent, coarseness));
     } else {
-      _applyBump(data);
+      _applyBump();
     }
   #endif
   
-  data.diffuse = true;
+  frx_fragEnableDiffuse = true;
 }

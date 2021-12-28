@@ -6,24 +6,24 @@
   lumiext:shaders/material/iron_golem.frag
 ******************************************************/
 
-void frx_startFragment(inout frx_FragmentData data) 
+void frx_materialFragment()
 {
   #ifdef LUMI_PBRX
-    vec4 c = data.spriteColor;
+    vec4 c = frx_sampleColor;
     float min_ = min( min(c.r, c.g), c.b );
     float max_ = max( max(c.r, c.g), c.b );
     float s = max_ > 0 ? (max_ - min_) / max_ : 0;
     if (s < 0.4) {
-        data.spriteColor.rgb /= max_;
-        data.spriteColor.b *= 0.8;
+        frx_fragColor.rgb /= max_;
+        frx_fragColor.b *= 0.8;
         pbr_metallic = 1.0;
         pbr_roughness = 0.4 - s * 0.2;
     }
     #ifdef LUMIEXT_ApplyBumpDefault
-      _applyBump(data, true);
+      _applyBump(true);
     #endif
   #endif
-  if(data.spriteColor.r > data.spriteColor.g * 2) {
-      data.emissivity = 1.0;
+  if (frx_sampleColor.r > frx_sampleColor.g * 2) {
+      frx_fragEmissive = 1.0;
   }
 }

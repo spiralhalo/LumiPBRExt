@@ -36,70 +36,66 @@ const float WOOD_PLANKS_ROUGHNESS = clamp(LUMIEXT_WoodPlanksRoughness * 0.1, 0.0
   lumiext:shaders/internal/frag.glsl
 ******************************************************/
 
-#if LUMI_PBR_API >= 3
-#define _applyMicroNormal(x, m) pbr_normalMicro = m
-#else
-#define _applyMicroNormal(x, m) x.vertexNormal = m
-#endif
+#define _applyMicroNormal(m) pbr_normalMicro = m
 
-void _applyBump(inout frx_FragmentData data) 
+void _applyBump()
 {
   vec2 topRight = frx_var3.xy;
   vec2 uvN = frx_var0.xy;
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
-  _applyMicroNormal(data, bump_normal2(
-    frxs_baseColor, data.vertexNormal ,
+  _applyMicroNormal(bump_normal2(
+    frxs_baseColor, frx_vertexNormal ,
     uvN, uvT, uvB, topRight, l2_tangent, false));
 }
 
-void _applyBump(inout frx_FragmentData data, bool reverse) 
+void _applyBump(bool reverse) 
 {
   vec2 topRight = frx_var3.xy;
   vec2 uvN = frx_var0.xy;
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
-  _applyMicroNormal(data, bump_normal2(
-    frxs_baseColor, data.vertexNormal ,
+  _applyMicroNormal(bump_normal2(
+    frxs_baseColor, frx_vertexNormal ,
     uvN, uvT, uvB, topRight, l2_tangent, reverse));
 }
 
-void _applyBump_alpha(inout frx_FragmentData data, bool reverse) 
+void _applyBump_alpha(bool reverse) 
 {
   vec2 topRight = frx_var3.xy;
   vec2 uvN = frx_var0.xy;
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
-  _applyMicroNormal(data, bump_alpha_normal(
-    frxs_baseColor, data.vertexNormal ,
+  _applyMicroNormal(bump_alpha_normal(
+    frxs_baseColor, frx_vertexNormal ,
     uvN, uvT, uvB, topRight, l2_tangent, reverse));
 }
 
-void _applyBump_step(inout frx_FragmentData data, float step_, float strength, bool reverse) 
+void _applyBump_step(float step_, float strength, bool reverse) 
 {
   vec2 topRight = frx_var3.xy;
   vec2 uvN = frx_var0.xy;
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
-  _applyMicroNormal(data, bump_step_normal(
-    frxs_baseColor, data.vertexNormal ,
+  _applyMicroNormal(bump_step_normal(
+    frxs_baseColor, frx_vertexNormal ,
     uvN, uvT, uvB, topRight, l2_tangent,
     step_, strength, reverse));
 }
 
-void _applyBump_step_s(inout frx_FragmentData data, float step_, float strength, bool reverse) 
+void _applyBump_step_s(float step_, float strength, bool reverse) 
 {
   vec2 topRight = frx_var3.xy;
   vec2 uvN = frx_var0.xy;
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
-  _applyMicroNormal(data, bump_step_s_normal(
-    frxs_baseColor, data.vertexNormal,
+  _applyMicroNormal(bump_step_s_normal(
+    frxs_baseColor, frx_vertexNormal,
     uvN, uvT, uvB, topRight, l2_tangent,
     step_, strength, reverse));
 }
 
-void _applyBevel(inout frx_FragmentData data, bool isBrick) 
+void _applyBevel(bool isBrick) 
 {
   // For now only works with terrain explicitly
   if (frx_modelOriginType() != MODEL_ORIGIN_REGION) {
@@ -107,5 +103,5 @@ void _applyBevel(inout frx_FragmentData data, bool isBrick)
   }
   vec2 spriteUV = frx_var1.zw;
   vec3 regionPos = frx_var2.xyz;
-  _applyMicroNormal(data, bump_bevel_normal(data.vertexNormal, spriteUV, regionPos, isBrick));
+  _applyMicroNormal(bump_bevel_normal(frx_vertexNormal, spriteUV, regionPos, isBrick));
 }

@@ -6,11 +6,11 @@
   lumiext:shaders/material/bumpy.frag
 ******************************************************/
 
-void frx_startFragment(inout frx_FragmentData data) 
+void frx_materialFragment()
 {
   #ifdef LUMIEXT_ApplyBumpDefault
     if (frx_var3.z > 0.5) {
-      _applyBump(data);
+      _applyBump();
     }
   #endif
 }

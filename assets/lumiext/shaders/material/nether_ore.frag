@@ -6,13 +6,13 @@
   lumiext:shaders/material/nether_ore.frag
 ******************************************************/
 
-void frx_startFragment(inout frx_FragmentData data) 
+void frx_materialFragment()
 {
   #if LUMIEXT_MaterialCoverage == LUMIEXT_MaterialCoverage_ApplyAll
     #ifdef LUMI_PBRX
       pbr_roughness = 0.7;
-      if (data.spriteColor.r > 0.6) {
-        if (!data.diffuse) {
+      if (frx_sampleColor.r > 0.6) {
+        if (!frx_fragEnableDiffuse) {
           pbr_roughness = 0.2;
           #if LUMI_PBR_API >= 1
             pbr_f0 = 0.17;
@@ -26,8 +26,8 @@ void frx_startFragment(inout frx_FragmentData data)
   #endif
 
   #ifdef LUMIEXT_ApplyBumpMinerals
-    _applyBump(data);
+    _applyBump();
   #endif
 
-  data.diffuse = true;
+  frx_fragEnableDiffuse = true;
 }

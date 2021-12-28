@@ -6,20 +6,20 @@
   lumiext:shaders/material/wood_polished.frag
 ******************************************************/
 
-void frx_startFragment(inout frx_FragmentData data) 
+void frx_materialFragment()
 {
   #ifdef LUMI_PBRX
     pbr_roughness = WOOD_PLANKS_ROUGHNESS;
   #endif
 
   #ifdef LUMIEXT_ApplyBumpMinerals
-    _applyBump(data);
+    _applyBump();
   #endif
 
   // Crying obsidian
-  if (data.emissivity > 0) {
-    data.emissivity = data.spriteColor.b - 0.4;
+  if (frx_fragEmissive > 0) {
+    frx_fragEmissive = frx_sampleColor.b - 0.4;
   }
   
-  data.diffuse = true;
+  frx_fragEnableDiffuse = true;
 }
