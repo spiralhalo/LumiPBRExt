@@ -25,7 +25,4 @@ void frx_materialVertex() {
   vec3 c2 = cross(frx_vertexNormal, vec3(0.0, 1.0, 0.0));
   float mult = frx_vertexNormal.y > 0.1 ? 1. : -1.;
   l2_tangent = mult * normalize(length(c1) > length(c2) ? c1 : c2);
-
-  // No PBR Ext tangent setup
-  // pbrExt_tangentSetup(frx_vertexNormal);
 }

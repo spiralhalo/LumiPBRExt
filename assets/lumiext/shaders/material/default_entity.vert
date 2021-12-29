@@ -14,5 +14,4 @@ void frx_materialVertex() {
   frx_var3.z = 1.;
   frx_var2.xyzw = frx_vertex;
   frx_var1.zw = frx_texcoord;
-  pbrExt_tangentSetup(frx_vertexNormal);
 }

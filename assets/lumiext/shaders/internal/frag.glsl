@@ -36,7 +36,7 @@ const float WOOD_PLANKS_ROUGHNESS = clamp(LUMIEXT_WoodPlanksRoughness * 0.1, 0.0
   lumiext:shaders/internal/frag.glsl
 ******************************************************/
 
-#define _applyMicroNormal(m) pbr_normalMicro = m
+#define _applyMicroNormal(m) frx_fragNormal = m
 
 void _applyBump()
 {
@@ -45,8 +45,7 @@ void _applyBump()
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
   _applyMicroNormal(bump_normal2(
-    frxs_baseColor, frx_vertexNormal ,
-    uvN, uvT, uvB, topRight, l2_tangent, false));
+    frxs_baseColor,     uvN, uvT, uvB, topRight, false));
 }
 
 void _applyBump(bool reverse) 
@@ -55,9 +54,7 @@ void _applyBump(bool reverse)
   vec2 uvN = frx_var0.xy;
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
-  _applyMicroNormal(bump_normal2(
-    frxs_baseColor, frx_vertexNormal ,
-    uvN, uvT, uvB, topRight, l2_tangent, reverse));
+  _applyMicroNormal(bump_normal2(frxs_baseColor, uvN, uvT, uvB, topRight, reverse));
 }
 
 void _applyBump_alpha(bool reverse) 
@@ -66,9 +63,7 @@ void _applyBump_alpha(bool reverse)
   vec2 uvN = frx_var0.xy;
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
-  _applyMicroNormal(bump_alpha_normal(
-    frxs_baseColor, frx_vertexNormal ,
-    uvN, uvT, uvB, topRight, l2_tangent, reverse));
+  _applyMicroNormal(bump_alpha_normal(frxs_baseColor, uvN, uvT, uvB, topRight, reverse));
 }
 
 void _applyBump_step(float step_, float strength, bool reverse) 
@@ -78,8 +73,7 @@ void _applyBump_step(float step_, float strength, bool reverse)
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
   _applyMicroNormal(bump_step_normal(
-    frxs_baseColor, frx_vertexNormal ,
-    uvN, uvT, uvB, topRight, l2_tangent,
+    frxs_baseColor, uvN, uvT, uvB, topRight,
     step_, strength, reverse));
 }
 
@@ -90,8 +84,7 @@ void _applyBump_step_s(float step_, float strength, bool reverse)
   vec2 uvT = frx_var0.zw;
   vec2 uvB = frx_var1.xy;
   _applyMicroNormal(bump_step_s_normal(
-    frxs_baseColor, frx_vertexNormal,
-    uvN, uvT, uvB, topRight, l2_tangent,
+    frxs_baseColor, uvN, uvT, uvB, topRight,
     step_, strength, reverse));
 }
 
@@ -103,5 +96,5 @@ void _applyBevel(bool isBrick)
   }
   vec2 spriteUV = frx_var1.zw;
   vec3 regionPos = frx_var2.xyz;
-  _applyMicroNormal(bump_bevel_normal(frx_vertexNormal, spriteUV, regionPos, isBrick));
+  pbr_normalMicro = bump_bevel_normal(frx_vertexNormal, spriteUV, regionPos, isBrick);
 }

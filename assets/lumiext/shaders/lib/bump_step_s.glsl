@@ -6,10 +6,11 @@
  ********************************************************/
 
 /* Generate binary bump map by checking texel saturation against a value defined by `step_`.*/
-vec3 bump_step_s_normal(sampler2D tex, vec3 normal, vec2 uvn, vec2 uvt, vec2 uvb, vec2 topRight, vec3 l2_tangent, float step_, float strength, bool reverse)
+vec3 bump_step_s_normal(sampler2D tex, vec2 uvn, vec2 uvt, vec2 uvb, vec2 topRight, float step_, float strength, bool reverse)
 {
-    vec3 tangentMove = l2_tangent * (reverse ? -1.0 : 1.0);
-    vec3 bitangentMove = cross(normal, l2_tangent) * (reverse ? -1.0 : 1.0);
+    vec3 normal = vec3(0.0, 0.0, 1.0);
+    vec3 tangentMove = vec3(1.0, 0.0, 0.0) * (reverse ? -1.0 : 1.0);
+    vec3 bitangentMove = vec3(0.0, 1.0, 0.0) * (reverse ? -1.0 : 1.0);
 
     if (uvn.x > topRight.x) { uvt = uvn; }
     if (uvn.y < topRight.y) { uvb = uvn; }
