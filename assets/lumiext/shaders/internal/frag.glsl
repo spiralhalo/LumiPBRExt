@@ -90,10 +90,6 @@ void _applyBump_step_s(float step_, float strength, bool reverse)
 
 void _applyBevel(bool isBrick) 
 {
-  // For now only works with terrain explicitly
-  if (frx_modelOriginType() != MODEL_ORIGIN_REGION) {
-    return;
-  }
   vec2 spriteUV = frx_var1.zw;
   vec3 regionPos = frx_var2.xyz;
   frx_fragNormal = bump_bevel_normal(spriteUV, regionPos, isBrick);
