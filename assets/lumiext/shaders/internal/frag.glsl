@@ -96,5 +96,5 @@ void _applyBevel(bool isBrick)
   }
   vec2 spriteUV = frx_var1.zw;
   vec3 regionPos = frx_var2.xyz;
-  pbr_normalMicro = bump_bevel_normal(frx_vertexNormal, spriteUV, regionPos, isBrick);
+  frx_fragNormal = bump_bevel_normal(spriteUV, regionPos, isBrick);
 }
