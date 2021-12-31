@@ -8,9 +8,11 @@
 
 void frx_materialFragment()
 {
-  #ifdef LUMIEXT_ApplyBumpDefault
-    if (frx_var3.z > 0.5) {
-      _applyBump();
-    }
-  #endif
+#ifdef PBR_ENABLED
+#ifdef LUMIEXT_ApplyBumpDefault
+  if (frx_var3.z > 0.5) {
+    _applyBump();
+  }
+#endif
+#endif
 }

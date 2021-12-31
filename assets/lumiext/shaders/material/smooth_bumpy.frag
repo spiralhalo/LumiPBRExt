@@ -8,13 +8,13 @@
 
 void frx_materialFragment()
 {
-  #ifdef LUMI_PBRX
-    if (!frx_fragEnableDiffuse) {
-      pbr_roughness = POLISHED_ROUGHNESS;
-    } else {
-      pbr_roughness = BASE_STONE_ROUGHNESS;
-    }
-  #endif
+#ifdef LUMI_PBRX
+  if (!frx_fragEnableDiffuse) {
+    pbr_roughness = POLISHED_ROUGHNESS;
+  } else {
+    pbr_roughness = BASE_STONE_ROUGHNESS;
+  }
+#endif
 
   frx_fragEnableDiffuse = true;
 
@@ -23,33 +23,36 @@ void frx_materialFragment()
 
   bool beveled = frx_var3.z > 1.5;
 
-  #if LUMIEXT_BricksBevelMode != LUMIEXT_BricksBevelMode_Beveled
-    beveled = beveled && !isBrick;
-  #endif
+#if LUMIEXT_BricksBevelMode != LUMIEXT_BricksBevelMode_Beveled
+  beveled = beveled && !isBrick;
+#endif
 
-  #if LUMIEXT_BevelMode != LUMIEXT_BevelMode_Beveled
-    beveled = beveled && isBrick;
-  #endif
+#if LUMIEXT_BevelMode != LUMIEXT_BevelMode_Beveled
+  beveled = beveled && isBrick;
+#endif
 
   bool bump_fallback = false;
 
-  #if LUMIEXT_BricksBevelMode == LUMIEXT_BricksBevelMode_TextureBump
-    bump_fallback = bump_fallback || isBrick;
-  #endif
+#if LUMIEXT_BricksBevelMode == LUMIEXT_BricksBevelMode_TextureBump
+  bump_fallback = bump_fallback || isBrick;
+#endif
 
-  #if LUMIEXT_BevelMode == LUMIEXT_BevelMode_TextureBump
-    bump_fallback = bump_fallback || !isBrick;
-  #endif
+#if LUMIEXT_BevelMode == LUMIEXT_BevelMode_TextureBump
+  bump_fallback = bump_fallback || !isBrick;
+#endif
 
   bump_fallback = bump_fallback && frx_var3.z > 1.5;
 
-  #ifdef LUMIEXT_ApplyBumpMinerals
+  // PBR_ENABLED check is late to minimize chance of important frx_frag* assignment being skipped
+#ifdef PBR_ENABLED
+#ifdef LUMIEXT_ApplyBumpMinerals
   if (beveled) {
     _applyBevel(isBrick);
   } else if ((frx_var3.z > 0.5 && frx_var3.z < 1.5) || bump_fallback) {
     _applyBump();
   }
-  #endif
+#endif
+#endif
 
   // Crying obsidian
   if (!frx_fragEnableAo && frx_modelOriginRegion) {

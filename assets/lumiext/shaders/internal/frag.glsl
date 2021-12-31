@@ -36,6 +36,7 @@ const float WOOD_PLANKS_ROUGHNESS = clamp(LUMIEXT_WoodPlanksRoughness * 0.1, 0.0
   lumiext:shaders/internal/frag.glsl
 ******************************************************/
 
+#ifdef PBR_ENABLED
 #define _applyMicroNormal(m) frx_fragNormal = m
 
 void _applyBump()
@@ -94,3 +95,4 @@ void _applyBevel(bool isBrick)
   vec3 regionPos = frx_var2.xyz;
   frx_fragNormal = bump_bevel_normal(spriteUV, regionPos, isBrick);
 }
+#endif

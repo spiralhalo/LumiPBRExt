@@ -20,8 +20,10 @@ void frx_materialFragment()
       pbr_roughness = 0.7;
     #endif
 
+    #ifdef PBR_ENABLED
     #ifdef LUMIEXT_ApplyBumpMinerals
       _applyBump();
+    #endif
     #endif
   
   } else {
@@ -47,9 +49,11 @@ void frx_materialFragment()
     #endif
     #endif
 
+    #ifdef PBR_ENABLED
     #ifdef LUMIEXT_ApplyBumpMinerals
       _applyBump();
       // frx_fragColor.rgb *= (frx_vertexNormal + 1) * 0.5;
+    #endif
     #endif
   }
 

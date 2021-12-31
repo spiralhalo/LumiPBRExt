@@ -6,11 +6,11 @@
 ******************************************************/
 
 void frx_materialVertex() {
-  float bump_resolution = ONE_PIXEL;
-// Unused
-//   frx_var0.xyzw
-//   frx_var1.xy
-//   frx_var3.xy
+  // // Unused
+  // float bump_resolution = ONE_PIXEL;
+  // frx_var0.xyzw
+  // frx_var1.xy
+  // frx_var3.xy
   frx_var3.z = 0.;
   frx_var2.xyzw = frx_vertex;
   frx_var1.zw = frx_texcoord;

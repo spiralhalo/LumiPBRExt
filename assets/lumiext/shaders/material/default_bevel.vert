@@ -6,6 +6,7 @@
 ******************************************************/
 
 void frx_materialVertex() {
+#ifdef PBR_ENABLED
   float bump_resolution = ONE_PIXEL;
 
 #if LUMIEXT_BricksBevelMode == LUMIEXT_BricksBevelMode_TextureBump || LUMIEXT_BevelMode == LUMIEXT_BevelMode_TextureBump
@@ -13,6 +14,7 @@ void frx_materialVertex() {
   frx_var0.zw = frx_mapNormalizedUV(frx_texcoord + vec2(bump_resolution, 0.0));
   frx_var1.xy = frx_mapNormalizedUV(frx_texcoord + vec2(0.0, -bump_resolution));
   frx_var3.xy = frx_mapNormalizedUV(vec2(1.0, 0.0) + vec2(-bump_resolution, bump_resolution));
+#endif
 #endif
 
   frx_var3.z = 2.;
