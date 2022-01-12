@@ -12,6 +12,8 @@ void frx_materialFragment()
 {
 #if LUMIEXT_MaterialCoverage == LUMIEXT_MaterialCoverage_ApplyAll
   if (!frx_fragEnableDiffuse) {
+
+    // tool_gem
     #ifdef PBR_ENABLED
     #ifdef LUMI_PBRX
       if (frx_sampleColor.b > frx_sampleColor.r) {
@@ -28,6 +30,7 @@ void frx_materialFragment()
 
   } else {
 
+    // tool_metal
     #ifdef PBR_ENABLED
     #ifdef LUMI_PBRX
       vec4 c = frx_sampleColor;

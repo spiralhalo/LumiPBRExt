@@ -23,7 +23,7 @@ vec3 bump_bevel_normal(vec2 spriteUV, vec3 regionPos, bool isBrick)
   vec2 eMax = max(eA, eB);
 
   vec3 normal = vec3(eA.x > eB.x ? -eA.x : eB.x, eA.y > eB.y ? eA.y : -eB.y, 1.0);
-  normal.xy = smoothstep(0.0, 0.25, abs(normal.xy)) * sign(normal.xy) * 0.5;
+  normal.xy = smoothstep(0.0, 0.25, abs(normal.xy)) * sign(normal.xy);
   normal.xy *= eMax.x > eMax.y ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
 
   return normalize(normal);
