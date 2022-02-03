@@ -93,6 +93,13 @@ void _applyBevel(bool isBrick)
 {
   vec2 spriteUV = frx_var1.zw;
   vec3 regionPos = frx_var2.xyz;
-  frx_fragNormal = bump_bevel_normal(spriteUV, regionPos, isBrick);
+  frx_fragNormal = bump_bevel_normal(spriteUV, regionPos, isBrick, false);
+}
+
+void _applyBevel2(bool isCut) 
+{
+  vec2 spriteUV = frx_var1.zw;
+  vec3 regionPos = frx_var2.xyz;
+  frx_fragNormal = bump_bevel_normal(spriteUV, regionPos, false, isCut);
 }
 #endif

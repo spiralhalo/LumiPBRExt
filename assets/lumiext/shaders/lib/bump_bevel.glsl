@@ -6,7 +6,7 @@
  * LICENSED under LGPL-3.0 and provided WITHOUT WARRANTY.
  ********************************************************/
 
-vec3 bump_bevel_normal(vec2 spriteUV, vec3 regionPos, bool isBrick) 
+vec3 bump_bevel_normal(vec2 spriteUV, vec3 regionPos, bool isBrick, bool isCut) 
 {
   vec2 mul = vec2(1.0);
 
@@ -16,6 +16,10 @@ vec3 bump_bevel_normal(vec2 spriteUV, vec3 regionPos, bool isBrick)
     }
     spriteUV.y = mod(spriteUV.y, 0.5);
     mul.y = 2.0;
+  } else if (isCut) {
+    spriteUV.x = mod(spriteUV.x, 0.5);
+    spriteUV.y = mod(spriteUV.y, 0.5);
+    mul *= 2.0;
   }
 
   vec2 eA = smoothstep(vec2(0.0725) * mul, vec2(0.0), spriteUV * mul);

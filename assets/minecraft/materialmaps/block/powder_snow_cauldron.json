@@ -1,6 +1,6 @@
 {
     "defaultMap": {
-        "defaultMaterial": "lumiext:wrought_iron",
+        "defaultMaterial": "lumiext:metal_bumpy",
         "spriteMap": [
             {
                 "sprite": "minecraft:block/powder_snow",
