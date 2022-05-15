@@ -1,0 +1,7 @@
+{
+    "blendMode": "translucent",
+    "disableDiffuse": true,
+    "vertexSource": "lumiext:shaders/material/default_entity.vert",
+    "fragmentSource": "lumiext:shaders/material/smooth_bumpy.frag",
+    "transform": true
+}

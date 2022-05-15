@@ -4,7 +4,7 @@
         "spriteMap": [
             {
                 "sprite": "minecraft:block/water_still",
-                "material": "lumiext:glass"
+                "material": "lumi:tasty_liquid"
             }
         ]
     }
