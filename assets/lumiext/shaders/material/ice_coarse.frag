@@ -7,8 +7,8 @@
 
 void frx_materialFragment()
 {
-#ifdef LUMI_PBRX
-  pbr_roughness = 0.1;
+#ifdef PBR_ENABLED
+  frx_fragRoughness = 0.1;
 #endif
 
 #ifdef PBR_ENABLED

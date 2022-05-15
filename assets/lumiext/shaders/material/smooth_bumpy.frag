@@ -8,11 +8,11 @@
 
 void frx_materialFragment()
 {
-#ifdef LUMI_PBRX
+#ifdef PBR_ENABLED
   if (!frx_fragEnableDiffuse) {
-    pbr_roughness = POLISHED_ROUGHNESS;
+    frx_fragRoughness = POLISHED_ROUGHNESS;
   } else {
-    pbr_roughness = BASE_STONE_ROUGHNESS;
+    frx_fragRoughness = BASE_STONE_ROUGHNESS;
   }
 #endif
 

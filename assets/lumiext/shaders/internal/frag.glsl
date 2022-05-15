@@ -6,11 +6,6 @@
 #include lumiext:shaders/internal/config.glsl
 #include lumi:shaders/api/pbr_ext.glsl
 
-// Fallback
-#if !defined(LUMI_PBR_API) || LUMI_PBR_API < 2
-  in vec3 l2_tangent;
-#endif 
-
 const float BASE_STONE_ROUGHNESS = clamp(LUMIEXT_BaseStoneRoughness * 0.1, 0.05, 1.0);
 const float POLISHED_ROUGHNESS = clamp(LUMIEXT_PolishedRoughness * 0.1, 0.05, 1.0);
 const float WOOD_PLANKS_ROUGHNESS = clamp(LUMIEXT_WoodPlanksRoughness * 0.1, 0.05, 1.0);

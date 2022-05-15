@@ -16,8 +16,8 @@ void frx_materialFragment()
       }
     #endif
 
-    #ifdef LUMI_PBRX
-      pbr_roughness = 0.7;
+    #ifdef PBR_ENABLED
+      frx_fragRoughness = 0.7;
     #endif
 
     #ifdef PBR_ENABLED
@@ -29,21 +29,19 @@ void frx_materialFragment()
   } else {
 
     #if LUMIEXT_MaterialCoverage == LUMIEXT_MaterialCoverage_ApplyAll
-    #ifdef LUMI_PBRX
-      pbr_roughness = 0.7;
+    #ifdef PBR_ENABLED
+      frx_fragRoughness = 0.7;
       vec3 c = frx_sampleColor.rgb;
       float min_ = min( min(c.r, c.g), c.b );
       float max_ = max( max(c.r, c.g), c.b );
       float s = max_ > 0 ? (max_ - min_) / max_ : 0;
       if (s > 0.3 || min_ > 0.65) {
         if (!frx_fragEnableDiffuse) {
-          pbr_roughness = 0.2;
-          #if LUMI_PBR_API >= 1
-            pbr_f0 = 0.17;
-          #endif
+          frx_fragRoughness = 0.2;
+          frx_fragReflectance = 0.17;
         } else {
-          pbr_roughness = 0.5;
-          pbr_metallic = 1.0;
+          frx_fragRoughness = 0.5;
+          frx_fragReflectance = 1.0;
         }
       }
     #endif

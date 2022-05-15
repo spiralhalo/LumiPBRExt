@@ -8,7 +8,7 @@
 
 void frx_materialFragment()
 {
-#ifdef LUMI_PBRX
+#ifdef PBR_ENABLED
   vec4 c = frx_sampleColor;
   float min_ = min( min(c.r, c.g), c.b );
   float max_ = max( max(c.r, c.g), c.b );
@@ -16,8 +16,8 @@ void frx_materialFragment()
   if (s < 0.4) {
       frx_fragColor.rgb /= max_;
       frx_fragColor.b *= 0.8;
-      pbr_metallic = 1.0;
-      pbr_roughness = 0.4 - s * 0.2;
+      frx_fragReflectance = 1.0;
+      frx_fragRoughness = 0.4 - s * 0.2;
   }
 #endif
 

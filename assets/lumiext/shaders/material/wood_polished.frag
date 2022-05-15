@@ -8,8 +8,8 @@
 
 void frx_materialFragment()
 {
-#ifdef LUMI_PBRX
-  pbr_roughness = WOOD_PLANKS_ROUGHNESS;
+#ifdef PBR_ENABLED
+  frx_fragRoughness = WOOD_PLANKS_ROUGHNESS;
 #endif
 
 #ifdef PBR_ENABLED
