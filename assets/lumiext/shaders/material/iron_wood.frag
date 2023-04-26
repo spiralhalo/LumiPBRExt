@@ -10,7 +10,6 @@ void frx_materialFragment()
 {
 #if LUMIEXT_MaterialCoverage == LUMIEXT_MaterialCoverage_ApplyAll
 #ifdef PBR_ENABLED
-#ifdef PBR_ENABLED
   vec4 c = frx_sampleColor;
   float min_ = min( min(c.r, c.g), c.b );
   float max_ = max( max(c.r, c.g), c.b );
@@ -20,10 +19,9 @@ void frx_materialFragment()
     frx_fragReflectance = 1.0;
     frx_fragRoughness = 0.5 - s * 0.5;
     #ifdef LUMIEXT_ApplyBumpMinerals
-      _applyBump_step_s(0.4, 0.4, frx_modelOriginType() == MODEL_ORIGIN_REGION);
+      _applyBump_step_s(0.4, 0.4, frx_modelOriginRegion);
     #endif
   }
-#endif
 #endif
 #endif
 }

@@ -1,5 +1,6 @@
 {
     "disableDiffuse": true,
     "vertexSource": "lumiext:shaders/material/default.vert",
-    "fragmentSource": "lumiext:shaders/material/tool.frag"
+    "fragmentSource": "lumiext:shaders/material/tool.frag",
+    "transform": true
 }

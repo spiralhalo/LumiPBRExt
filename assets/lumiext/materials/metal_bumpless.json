@@ -1,0 +1,5 @@
+{
+    "disableDiffuse": false,
+    "vertexSource": "lumiext:shaders/material/default_bumpless.vert",
+    "fragmentSource": "lumiext:shaders/material/metal_bumpy.frag"
+}

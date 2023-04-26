@@ -15,19 +15,19 @@ vec3 bump_step_s_normal(sampler2D tex, vec2 uvn, vec2 uvt, vec2 uvb, vec2 topRig
     if (uvn.x > topRight.x) { uvt = uvn; }
     if (uvn.y < topRight.y) { uvb = uvn; }
     
-    vec4  c         = lumiext_textureCompat(tex, uvn, frx_matUnmippedFactor() * -4.0);
+    vec4  c         = lumiext_texture(tex, uvn);
     float min_      = min( min(c.r, c.g), c.b );
     float max_      = max( max(c.r, c.g), c.b );
     float s         = (max_ > 0 ? (max_ - min_) / max_ : 0) + (1 - c.a);
     vec3  origin    = (s > step_ ? strength : 0.0) * normal;
     
-          c         = lumiext_textureCompat(tex, uvt, frx_matUnmippedFactor() * -4.0);
+          c         = lumiext_texture(tex, uvt);
           min_      = min( min(c.r, c.g), c.b );
           max_      = max( max(c.r, c.g), c.b );
           s         = (max_ > 0 ? (max_ - min_) / max_ : 0) + (1 - c.a);
     vec3  tangent   = tangentMove + (s > step_ ? strength : 0.0) * normal - origin;
     
-          c         = lumiext_textureCompat(tex, uvb, frx_matUnmippedFactor() * -4.0);
+          c         = lumiext_texture(tex, uvb);
           min_      = min( min(c.r, c.g), c.b );
           max_      = max( max(c.r, c.g), c.b );
           s         = (max_ > 0 ? (max_ - min_) / max_ : 0) + (1 - c.a);

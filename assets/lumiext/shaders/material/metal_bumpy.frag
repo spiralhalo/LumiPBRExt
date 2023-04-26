@@ -20,7 +20,7 @@ void frx_materialFragment()
   frx_fragReflectance = max(0.0, 1.0 - weathered * 2.0);
   frx_fragRoughness = waxed ? 0.2 : 0.28;
   frx_fragRoughness = mix(frx_fragRoughness, 1.0, weathered);
-  // frx_fragRoughness = mod(frx_var2.xyz + frx_modelOriginWorldPos(), 10.0).z / 10.0; // roughness test material
+  // frx_fragRoughness = mod(frx_var2.xyz + frx_modelToWorld.xyz, 10.0).z / 10.0; // roughness test material
 #endif
 
 #ifdef PBR_ENABLED

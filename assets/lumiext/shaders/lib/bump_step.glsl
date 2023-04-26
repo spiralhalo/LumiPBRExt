@@ -15,9 +15,9 @@ vec3 bump_step_normal(sampler2D tex, vec2 uvn, vec2 uvt, vec2 uvb, vec2 topRight
     if (uvn.x > topRight.x) { uvt = uvn; }
     if (uvn.y < topRight.y) { uvb = uvn; }
 
-    vec3 origin    =                 _bump_height(frx_luminance(textureLod(tex, uvn, 0.0).rgb) > step_ ? strength : 0.0) * normal;
-    vec3 tangent   = tangentMove   + _bump_height(frx_luminance(textureLod(tex, uvt, 0.0).rgb) > step_ ? strength : 0.0) * normal - origin;
-    vec3 bitangent = bitangentMove + _bump_height(frx_luminance(textureLod(tex, uvb, 0.0).rgb) > step_ ? strength : 0.0) * normal - origin;
+    vec3 origin    =                 _bump_height(frx_luminance(lumiext_texture(tex, uvn).rgb) > step_ ? strength : 0.0) * normal;
+    vec3 tangent   = tangentMove   + _bump_height(frx_luminance(lumiext_texture(tex, uvt).rgb) > step_ ? strength : 0.0) * normal - origin;
+    vec3 bitangent = bitangentMove + _bump_height(frx_luminance(lumiext_texture(tex, uvb).rgb) > step_ ? strength : 0.0) * normal - origin;
 
     return normalize(cross(tangent, bitangent));
 }

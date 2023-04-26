@@ -30,6 +30,9 @@
 #if LUMIEXT_ApplyBumpDefaultB == 1
     #define LUMIEXT_ApplyBumpDefault
 #endif
+#if LUMIEXT_HiResBumpsB == 1
+    #define LUMIEXT_HiResBumps
+#endif
 
 /* UNUSED VARIABLES */
 // #define LUMIEXT_ApplyArmorBump
@@ -37,4 +40,5 @@
 
 #endif // respackopts_loaded
 
-const float ONE_PIXEL = 1. / clamp(float(LUMIEXT_TextureResolution), 0., 2048.);
+const float TEX_SIZE = clamp(float(LUMIEXT_TextureResolution), 0., 2048.);
+const float ONE_PIXEL = 1. / TEX_SIZE;

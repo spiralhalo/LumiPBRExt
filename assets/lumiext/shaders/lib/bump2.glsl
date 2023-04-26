@@ -16,9 +16,9 @@ vec3 bump_normal2(sampler2D tex, vec2 uvn, vec2 uvt, vec2 uvb, vec2 topRight, bo
     if (uvn.x > topRight.x) { uvt = uvn; }
     if (uvn.y < topRight.y) { uvb = uvn; }
 
-    float hn = _bump_height2(textureLod(tex, uvn, 0.0).rgb);
-    float ht = _bump_height2(textureLod(tex, uvt, 0.0).rgb);
-    float hb = _bump_height2(textureLod(tex, uvb, 0.0).rgb);
+    float hn = _bump_height2(lumiext_hd_texture(tex, uvn).rgb);
+    float ht = _bump_height2(lumiext_hd_texture(tex, uvt).rgb);
+    float hb = _bump_height2(lumiext_hd_texture(tex, uvb).rgb);
     
     vec3 origin = hn * normal;
     vec3 tangent = tangentMove + ht * normal - origin;
